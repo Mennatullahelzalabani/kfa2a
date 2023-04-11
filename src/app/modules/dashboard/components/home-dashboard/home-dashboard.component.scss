@@ -1,0 +1,40 @@
+@import "../../../../../assets/styles/Angular-material.scss";
+
+.container {
+  .boxes {
+    display: flex;
+    justify-content: space-between;
+
+    .box {
+      background-color: #ffffff;
+      margin-top: -90px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      display: flex;
+      padding: 25px;
+      align-items: center;
+      height: 185px;
+      .content {
+        font-family: "original";
+        .number {
+          color: #2c6e59;
+          font-size: 32px;
+          font-weight: 700;
+          margin-bottom: 0;
+          padding-bottom: 28px;
+        }
+        .text {
+          color: #787a7d;
+          font-weight: 600;
+          font-size: 18px;
+          margin-top: 0;
+        }
+      }
+      .image {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

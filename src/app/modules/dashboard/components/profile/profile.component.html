@@ -1,0 +1,170 @@
+<app-header-dashboard [pageTitle]="pageTitleValue"></app-header-dashboard>
+<div class="section-1">
+  <div class="heading">
+    <h2 class="text">المعلومات الأساسية للشركة المصنعة</h2>
+    <button class="button btn-primary" (click)="senddata()">
+      تعديل الملف الشخصي
+    </button>
+  </div>
+
+  <ul class="list">
+    <div class="row">
+      <li class="primary col-3">
+        مرجع المصنع
+        <ul class="listsecodary">
+          <li class="secondary">مصنع سعودي</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        اسم الشركة المصنعة ( بالإنجليزية )
+        <ul class="listsecodary">
+          <li class="secondary">El-hamd</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        اسم الشركة المصنعة ( بالعربية )
+        <ul class="listsecodary">
+          <li class="secondary">الحمد</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        رقم للتواصل
+        <ul class="listsecodary">
+          <li class="secondary">01232323332</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        رقم الفاكس
+        <ul class="listsecodary">
+          <li class="secondary">022376289</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        الصندوق البريدي
+        <ul class="listsecodary">
+          <li class="secondary">ص.ب 288</li>
+        </ul>
+      </li>
+
+      <li class="primary col-3">
+        الرمز البريدي
+        <ul class="listsecodary">
+          <li class="secondary">11722</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        البلد
+        <ul class="listsecodary">
+          <li class="secondary">السعودية</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        المدينة
+        <ul class="listsecodary">
+          <li class="secondary">الرياض</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        العنوان
+        <ul class="listsecodary">
+          <li class="secondary">7595 طريق عثمان بن عفان، الفلاح</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        رقم السجل التجاري
+        <ul class="listsecodary">
+          <li class="secondary">81271278282</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        تاريخ إنتهاء السجل التجاري
+        <ul class="listsecodary">
+          <li class="secondary">12/12/2023</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        الموقع الإلكتروني
+        <ul class="listsecodary">
+          <li class="secondary">www.elhamd.com</li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</div>
+
+<div class="section-2">
+  <form class="form-upload" [formGroup]="uploadForm">
+    <h2 class="heading">معلومات اعتماد الشركة المصنعة</h2>
+    <div class="upload-btn-wrapper form-control">
+      <div class="position-relative">
+        <div class="upload-icon-pos">
+          <button class="btn btn-secondary">
+            <div class="content">
+              <img
+                class="img"
+                src="../../../../assets/images/upload1.svg"
+                alt="upload"
+              />
+              <p class="input">خطاب التفويض</p>
+            </div>
+          </button>
+        </div>
+      </div>
+      <input
+        class="form-control"
+        type="file"
+        accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
+        (change)="selectAuthorityLetterUrl($event)"
+        formControlName="authorityLetterUrl"
+      />
+    </div>
+    <img *ngIf="fileUrl != ''" [src]="assetsUrl + fileUrl" />
+  </form>
+</div>
+
+<div class="section-3">
+  <h2 class="heading">معلومات ممثل الشركة المصنعة</h2>
+
+  <ul class="list">
+    <div class="row">
+      <li class="primary col-3">
+        اسم ممثل الشركة المصنعة
+        <ul class="listsecodary">
+          <li class="secondary">أحمد محمد إسماعيل</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        رقم للتواصل
+        <ul class="listsecodary">
+          <li class="secondary">08902384998</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        البريد الإلكتروني
+        <ul class="listsecodary">
+          <li class="secondary">mail@mail.com</li>
+        </ul>
+      </li>
+      <li class="primary col-3">
+        المسمى الوظيفي
+        <ul class="listsecodary">
+          <li class="secondary">مدير المبيعات</li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</div>
+<div class="section-3">
+  <h2 class="heading">معلومات الحساب</h2>
+
+  <ul class="list">
+    <div class="row">
+      <li class="primary col-3">
+        البريد الإلكتروني الرسمي للجهة
+        <ul class="listsecodary">
+          <li class="secondary">mail@mail.com</li>
+        </ul>
+      </li>
+    </div>
+  </ul>
+</div>

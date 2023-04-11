@@ -1,0 +1,84 @@
+.side-menu {
+  background-color: #ffffff;
+  .container {
+    width: 100%;
+
+    .section-1 {
+      border-bottom: 1px solid #e6e6e6;
+      .logo {
+        margin-top: 54px;
+      }
+      .dropdown {
+        width: 16px;
+        height: 16px;
+        margin-top: 30px;
+        padding-left: 50px;
+      }
+      .member {
+        background-color: #f0f9f6;
+        height: 90px;
+        padding-bottom: 20px;
+        display: flex;
+        margin-top: 54px;
+        margin-bottom: 30px;
+        .user {
+          margin-right: 14px;
+          margin-top: 24px;
+        }
+        .job {
+          margin-top: 14px;
+          margin-left: 100px;
+          padding-right: 20px;
+
+          .name {
+            color: #2c6e59;
+            font-family: "original";
+            font-size: 20px;
+            font-weight: 800;
+          }
+          .job-title {
+            font-family: "original";
+            font-size: 14px;
+            font-weight: 500;
+            color: #999999;
+          }
+        }
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      .part {
+        padding-top: 40px;
+        border-bottom: 1px solid #e6e6e6;
+      }
+      .component {
+        padding-top: 32px;
+
+        .link {
+          text-decoration: none;
+          color: #787a7d;
+          font-family: "original";
+          font-size: 20px;
+          font-weight: 500;
+          padding-right: 24px;
+        }
+
+        .link:hover,
+        .link:focus {
+          color: #2c6e59;
+          font-weight: 800;
+        }
+        .logout {
+          color: #790606;
+        }
+        .info {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+.component:last-of-type {
+  padding-bottom: 32px;
+}

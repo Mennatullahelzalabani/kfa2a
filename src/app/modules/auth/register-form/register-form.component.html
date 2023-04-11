@@ -1,0 +1,611 @@
+<app-auth-header [pageTitle]="pageTitleValue"></app-auth-header>
+
+<mat-stepper #stepper>
+  <mat-step [stepControl]="firstForm">
+    <div class="form-wrapper">
+      <div class="container">
+        <form class="form" [formGroup]="firstForm">
+          <h2 class="heading">المعلومات الأساسية للشركة المصنعة</h2>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group check-box">
+                <label for="name" class="form-lable"
+                  >مصنع سعودي <span class="required">*</span>
+                </label>
+                <input
+                  class="check-mark"
+                  type="radio"
+                  id="arabic"
+                  name="isSaudi"
+                  value="1"
+                  formControlName="isSaudi"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                    (firstForm.get('nameAr')!.errors &&
+                      (firstForm.get('nameAr')?.dirty ||
+                        firstForm.get('nameAr')?.touched)) ||
+                    firstFormSubmitted
+                  "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group check-box">
+                <label for="name" class="form-lable">
+                  مصنع غير سعودي <span class="required">*</span>
+                </label>
+                <input
+                  class="check-mark"
+                  type="radio"
+                  id="arabic"
+                  name="arabic"
+                  value="0"
+                />
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="name" class="form-lable"
+                  >اسم الشركة المصنعة ( بالإنجليزية )
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="اسم الشركة المصنعة ( بالإنجليزية ) "
+                  formControlName="nameEn"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                    firstForm.get('nameEn')!.errors?.['required'] &&
+                    firstForm.get('nameEn')!.touched 
+                  "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable">
+                  اسم الشركة المصنعة ( بالعربية )
+                  <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="  اسم الشركة المصنعة ( بالعربية )"
+                  formControlName="nameAr"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('nameAr')!.errors?.['required'] &&
+                  firstForm.get('nameAr')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="phone" class="form-lable"
+                  >رقم للتواصل <span class="required">*</span></label
+                >
+
+                <input
+                  class="form-control"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="ادخل رقم للتواصل "
+                  formControlName="phone"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('phone')!.errors?.['required'] &&
+                  firstForm.get('phone')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="phone" class="form-lable">رقم الفاكس</label>
+
+                <input
+                  class="form-control"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="ادخل رقم الفاكس   "
+                  formControlName="fax"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('fax')!.errors?.['required'] &&
+                  firstForm.get('fax')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="email" class="form-lable">
+                  الصندوق البريدي <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder=" ادخل الصندوق البريدي"
+                  formControlName="poBox"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('poBox')!.errors?.['required'] &&
+                  firstForm.get('poBox')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable">
+                  الرمز البريدي <span class="required"> *</span></label
+                >
+                <input
+                  class="form-control"
+                  type="text"
+                  name="number"
+                  id="number"
+                  placeholder="ادخل الرمز البريدي"
+                  formControlName="postcode"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('postcode')!.errors?.['required'] &&
+                  firstForm.get('postcode')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="sel1" class="form-lable">
+                  البلد <span class="required">*</span></label
+                >
+                <select class="form-select" formControlName="countryId">
+                  <option>البلد</option>
+                  <option [ngValue]="1">One</option>
+                  <option [ngValue]="2">Two</option>
+                  <option [ngValue]="3">Three</option>
+                </select>
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('countryId')!.errors?.['required'] &&
+                  firstForm.get('countryId')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable"
+                  >المدينة <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="المدينة"
+                  formControlName="city"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('city')!.errors?.['required'] &&
+                  firstForm.get('city')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable"
+                  >العنوان <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="العنوان"
+                  formControlName="address"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('address')!.errors?.['required'] &&
+                  firstForm.get('address')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable">
+                  رقم السجل التجاري <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="text"
+                  name="number"
+                  id="number"
+                  placeholder="  رقم السجل التجاري"
+                  formControlName="commercialRegisterstring"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('commercialRegisterstring')!.errors?.['required'] &&
+                  firstForm.get('commercialRegisterstring')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group date">
+                <label for="date" class="date-label col-form-label"
+                  >تاريخ إنتهاء السجل التجاري
+                  <span class="required">*</span></label
+                >
+                <div class="date-pick">
+                  <mat-form-field appearance="fill">
+                    <mat-label class="date-label1"
+                      >ادخل تاريخ الإنتهاء</mat-label
+                    >
+                    <input
+                      matInput
+                      [matDatepicker]="picker"
+                      formControlName="commercialRegisterstringEndDate"
+                    />
+                    <mat-datepicker-toggle
+                      matIconSuffix
+                      [for]="picker"
+                    ></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                  <div
+                    class="error-valid-msg"
+                    *ngIf="
+                    firstForm.get('commercialRegisterstringEndDate')!.errors?.['required'] &&
+                    firstForm.get('commercialRegisterstringEndDate')!.touched
+                  "
+                  >
+                    برجاء ادخال قيمه
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="email" class="form-lable"> الموقع الإلكتروني</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="  الموقع الإلكتروني  "
+                  formControlName="website"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  firstForm.get('website')!.errors?.['required'] &&
+                  firstForm.get('website')!.touched
+                "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <button
+          class="btn-primary next"
+          mat-button
+          (click)="onNextFirst(stepper)"
+        >
+          التالي
+        </button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="secondForm">
+    <div class="form-wrapper">
+      <div class="container">
+        <form class="form-upload" [formGroup]="secondForm">
+          <h2 class="heading">معلومات اعتماد الشركة المصنعة</h2>
+          <div class="details">
+            <h3 class="heading1">
+              خطاب التفويض <span class="required">*</span>
+            </h3>
+            <a class="logo">
+              <span
+                matTooltip="الشخص المتقدم للتسجيل مخول من قبل الشركة المصنعة للتسجيل وتحديث معلومات الشركة المصنعة. 
+          يجب أن يحتوي الخطاب على رقم السجل التجاري في حال كان المصنع سعودي "
+              >
+                <img src="../../../../assets/images/info.svg" alt="info" />
+              </span>
+            </a>
+          </div>
+
+          <div class="upload-btn-wrapper input-icon form-control">
+            <div class="position-relative">
+              <div class="upload-icon-pos">
+                <img src="../../../../assets/images/upload.svg" alt="upload" />
+              </div>
+            </div>
+            <input
+              class="form-control"
+              type="file"
+              accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
+              (change)="selectAuthorityLetterUrl($event)"
+              formControlName="authorityLetterUrl"
+            />
+          </div>
+          <img *ngIf="fileUrl != ''" [src]="assetsUrl + fileUrl" />
+        </form>
+        <div class="buttons">
+          <button class="btn-secondary" mat-button matStepperPrevious>
+            رجوع
+          </button>
+          <button
+            class="btn-primary"
+            mat-button
+            (click)="onNextSecond(stepper)"
+          >
+            التالي
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+
+  <mat-step [stepControl]="thirdForm">
+    <div class="form-wrapper">
+      <div class="container">
+        <form class="form" [formGroup]="thirdForm">
+          <h2 class="heading">معلومات ممثل الشركة المصنعة</h2>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable">
+                  اسم ممثل الجهة
+                  <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="( اسم ممثل الجهة )"
+                  formControlName="contact1_name"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('contact1_name')!.errors?.['required'] &&
+                thirdForm.get('contact1_name')!.touched
+              "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="phone" class="form-lable"
+                  >رقم للتواصل <span class="required">*</span></label
+                >
+
+                <input
+                  class="form-control"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  placeholder="ادخل رقم للتواصل "
+                  formControlName="contact1_phone"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('contact1_phone')!.errors?.['required'] &&
+                thirdForm.get('contact1_phone')!.touched
+              "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="email" class="form-lable">
+                  البريد الإلكتروني <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="   البريد الإلكتروني"
+                  formControlName="contact1_email"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('contact1_email')!.errors?.['required'] &&
+                thirdForm.get('contact1_email')!.touched
+              "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="text" class="form-lable">
+                  المسمى الوظيفي
+                  <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="     المسمى الوظيفي"
+                  formControlName="contact1_position"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('contact1_position')!.errors?.['required'] &&
+                thirdForm.get('contact1_position')!.touched
+              "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+
+            <h2 class="heading">معلومات الحساب</h2>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="email" class="form-lable">
+                  البريد الإلكتروني الرسمي للجهة
+                  <span class="required">*</span></label
+                >
+                <input
+                  class="form-control"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="   البريد الإلكتروني الرسمي للجهة "
+                  formControlName="email"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('email')!.errors?.['required'] &&
+                      thirdForm.get('email')!.touched
+                    "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6"></div>
+
+            <div class="col-6">
+              <div class="form-group">
+                <label for="password" class="form-lable"
+                  >كلمة المرور
+                  <span class="required">*</span>
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder=" كلمة المرور "
+                  formControlName="password"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('password')!.errors?.['required'] &&
+                    thirdForm.get('password')!.touched
+                  "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label for="password" class="form-lable">
+                  تأكيد كلمة المرور
+                  <span class="required">*</span>
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="  تأكيد كلمة المرور  "
+                  formControlName="password"
+                />
+                <div
+                  class="error-valid-msg"
+                  *ngIf="
+                  thirdForm.get('password')!.errors?.['required'] &&
+                    thirdForm.get('password')!.touched
+                  "
+                >
+                  برجاء ادخال قيمه
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
+          <button class="btn-secondary" mat-button matStepperPrevious>
+            رجوع
+          </button>
+          <button class="btn-primary" mat-button (click)="sendData()">
+            إنشاء
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper>
+<app-footer></app-footer>

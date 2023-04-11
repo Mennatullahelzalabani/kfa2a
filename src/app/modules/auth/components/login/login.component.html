@@ -1,0 +1,66 @@
+<app-auth-header [pageTitle]="pageTitleValue"></app-auth-header>
+
+<div class="login-wrapper">
+  <div class="container">
+    <form class="forum" [formGroup]="LoginForm">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="email" class="form-lable"
+              >البريد الإلكتروني
+              <span class="required">*</span>
+            </label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ادخل البريد الإلكتروني"
+              formControlName="email"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+                LoginForm.controls['email'].hasError('pattern') ||
+                LoginForm.get('email')!.touched
+              "
+            >
+              صيغه البريد الالكتروني غير صحيحه
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="password" class="form-lable"
+              >كلمة المرور
+              <span class="required">*</span>
+            </label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="ادخل كلمة المرور "
+              formControlName="password"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+            LoginForm.get('password')!.errors?.['required'] &&
+            LoginForm.get('password')!.touched
+          "
+            >
+              برجاء ادخال قيمه
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="login-components">
+        <a [routerLink]="['/auth/forget-password']">نسيت كلمة المرور</a>
+        <button class="button btn-primary" (click)="sendData()">
+          تسجيل الدخول
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,19 @@
+@import "node_modules/bootstrap/dist/css/bootstrap.css";
+@import "./assets/styles/inputs.scss";
+@import "./assets/styles/fonts.scss";
+@import "./assets/styles/general.scss";
+@import "./assets/styles/buttons.scss";
+@import "./assets/styles/Angular-material.scss";
+@import "./assets/styles/header.scss";
+@import "./assets/styles/error-valid-msg.scss";
+
+body {
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}

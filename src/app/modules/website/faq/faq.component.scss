@@ -1,0 +1,48 @@
+:host {
+  .form-group {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+
+    .form-select {
+      width: 25%;
+      height: 50px;
+      font-size: 16px;
+    }
+
+    .form-lable {
+      color: #2c6e59;
+
+      padding-top: 15px;
+      padding-left: 14px;
+    }
+  }
+  .content {
+    margin-top: 30px;
+
+    .content-container {
+      width: 75%;
+    }
+    .section {
+      border-top: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+    }
+
+    .summary {
+      font-family: "original";
+      font-size: 24px;
+      font-weight: 800;
+      padding-top: 30px;
+      color: #000000;
+      padding-bottom: 30px;
+    }
+    .details {
+      color: #787a7d;
+      font-family: "original";
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 30px;
+      padding-bottom: 32px;
+    }
+  }
+}

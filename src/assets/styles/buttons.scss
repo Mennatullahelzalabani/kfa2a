@@ -1,0 +1,19 @@
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+}
+.btn-primary {
+  background-color: #0091b4;
+  color: #ffffff;
+  margin-left: 20px;
+}
+.btn-secondary {
+  background-color: #ffffff;
+  color: #0091b4;
+  border: 1px solid #0091b4;
+}
+button[disabled] {
+  opacity: 0.5;
+}

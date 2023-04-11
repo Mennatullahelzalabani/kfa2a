@@ -1,0 +1,130 @@
+<app-header [pageTitle]="pageTitleValue"></app-header>
+
+<div class="contact-us-wrapper">
+  <div class="container">
+    <h2 class="heading">
+      يمكنك التواصل معنا في حال وجود مقترحات ، إستفسارات أو شكاوى و غيرها
+    </h2>
+
+    <form [formGroup]="contactForm">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="name" class="form-lable">الإسم بالكامل</label>
+
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="ادخل الإسم بالكامل "
+              formControlName="fullName"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+            contactForm.get('fullName')!.errors?.['required'] &&
+            contactForm.get('fullName')!.touched
+          "
+            >
+              برجاء ادخال قيمه
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="email" class="form-lable">البريد الإلكتروني</label>
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ادخل البريد الإلكتروني"
+              formControlName="email"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+            contactForm.get('email')!.errors?.['required'] &&
+            contactForm.get('email')!.touched
+          "
+            >
+              برجاء ادخال قيمه
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="phone" class="form-lable">رقم التواصل</label>
+
+            <input
+              class="form-control"
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="ادخل رقم التواصل "
+              formControlName="phone"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+            contactForm.get('phone')!.errors?.['required'] &&
+            contactForm.get('phone')!.touched
+          "
+            >
+              برجاء ادخال قيمه
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="sel1" class="form-lable">نوع التواصل</label>
+            <select class="form-select" formControlName="type">
+              <option>اختر نوع التواصل</option>
+              <option [ngValue]="1">One</option>
+              <option [ngValue]="2">Two</option>
+              <option [ngValue]="3">Three</option>
+            </select>
+          </div>
+          <div
+            class="error-valid-msg"
+            *ngIf="
+          contactForm.get('type')!.errors?.['required'] &&
+          contactForm.get('type')!.touched
+        "
+          >
+            برجاء ادخال قيمه
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group">
+            <label for="comment" class="form-lable">رسالتك</label>
+            <textarea
+              class="form-textarea"
+              id="message"
+              name="text"
+              placeholder=" ادخل نص الرسالة"
+              formControlName="body"
+            >
+                ادخل نص الرسالة</textarea
+            >
+            <div
+              class="error-valid-msg"
+              *ngIf="
+          contactForm.get('body')!.errors?.['required'] &&
+          contactForm.get('body')!.touched
+        "
+            >
+              برجاء ادخال قيمه
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <button type="submit" class="btn btn-primary" (click)="sendData()">
+      إرسال
+    </button>
+  </div>
+</div>

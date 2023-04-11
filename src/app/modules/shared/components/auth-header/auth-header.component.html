@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg">
+      <ul class="right">
+        <img clas="logo" src="assets/images/logo-login.svg" alt="logo" />
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/testers']"> جهات الإختبار </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/workshops']">الورش</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/faq']">الأسئله الشائعه </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contact-us']">تواصل معنا</a>
+        </li>
+      </ul>
+
+      <ul class="left">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            EN
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"></a>
+          </div>
+        </li>
+      </ul>
+      <div class="btns">
+        <button class="button btn-primary" [routerLink]="['/auth/register']">
+          إنشاء الحساب
+        </button>
+        <button class="button btn-secondary" [routerLink]="['/auth/login']">
+          تسجيل الدخول
+        </button>
+      </div>
+    </nav>
+
+    <div class="text">
+      <h1 class="heading">{{ pageTitle.title }}</h1>
+      <p class="paragraph">
+        <br />
+        {{ pageTitle.text }}
+      </p>
+    </div>
+  </div>
+</div>

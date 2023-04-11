@@ -1,0 +1,70 @@
+.form-group {
+  .form-lable {
+    font-family: "original";
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 12px;
+    padding-top: 32px;
+  }
+  .form-control {
+    font-family: "original";
+    font-size: 16px;
+    font-weight: 500;
+    color: #999999;
+    border: 1px solid #eaeaea;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  .form-select {
+    background-position-y: center;
+    background-position-x: 20px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-right: 12px;
+    border: 1px solid #eaeaea;
+    font-family: "original";
+    font-size: 16px;
+    font-weight: 500;
+    color: #999999;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #eaeaea;
+    }
+  }
+  .form-textarea {
+    height: 52px !important;
+    font-family: "original";
+    font-size: 16px;
+    font-weight: 500;
+    color: #999999;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding-top: 14px;
+    width: 100%;
+    resize: none;
+
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border-color: #eaeaea;
+    }
+  }
+}
+.required {
+  color: red;
+}
+.error-valid-msg {
+  color: #d43838;
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: bold;
+}

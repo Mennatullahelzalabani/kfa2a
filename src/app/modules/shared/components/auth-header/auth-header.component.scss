@@ -1,0 +1,20 @@
+.wrapper {
+  min-height: 60vh;
+  .text {
+    text-align: center;
+
+    .heading {
+      color: #ffffff;
+      font-family: "original";
+      font-size: 42px;
+      font-weight: 600;
+    }
+    .paragraph {
+      font-family: "original";
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 20px;
+      padding-top: 32px;
+    }
+  }
+}
