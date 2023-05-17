@@ -6,13 +6,13 @@
 }
 .btn-primary {
   background-color: #0091b4;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-left: 20px;
 }
 .btn-secondary {
   background-color: #ffffff;
-  color: #0091b4;
-  border: 1px solid #0091b4;
+  color: #0091b4 !important;
+  border: 1px solid #0091b4 !important;
 }
 button[disabled] {
   opacity: 0.5;

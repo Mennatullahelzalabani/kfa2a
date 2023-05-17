@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +15,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { SharedModule } from '../shared/shared.module';
 import { InfoComponent } from './components/info/info.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatNativeDateModule,
     MatInputModule,
     SharedModule,
-    MatTooltipModule,
+    MatMenuModule,
   ],
 })
 export class AuthModule {}

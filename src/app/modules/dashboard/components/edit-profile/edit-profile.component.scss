@@ -1,0 +1,100 @@
+@import "../../../../../assets/styles/Angular-material.scss";
+@import "../../../../../assets/styles/inputs.scss";
+
+.form-wrapper {
+  background-color: #ffffff;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: -100px;
+  border-radius: 8px;
+  box-shadow: 0px 14px 24px rgba(108, 108, 108, 0.1);
+
+  .form {
+    margin: 0 72px;
+  }
+}
+
+.heading {
+  font-family: "original";
+  font-size: 32px;
+  font-weight: 800;
+  padding-top: 46px;
+  padding-bottom: 40px;
+}
+.heading1 {
+  font-family: "original";
+  padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.btn-primary {
+  font-size: 14px;
+  font-family: "original";
+  font-weight: 600;
+  width: 136px;
+  height: 48px;
+  border: none;
+  margin-bottom: 70px;
+  border-radius: 4px;
+}
+
+.check-box {
+  border: 1px solid #eaeaea;
+
+  .form-lable {
+    padding-top: 17px;
+    padding-right: 17px;
+  }
+  .check-mark {
+    accent-color: #2c6e59;
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-top: 17px;
+    margin-left: 35px;
+  }
+}
+
+.buttons {
+  margin-top: 46px;
+  margin-right: 72px;
+}
+.btn-secondary {
+  font-size: 14px;
+  font-family: "original";
+  font-weight: 600;
+  width: 114px;
+  height: 48px;
+  margin-bottom: 70px;
+  border-radius: 4px;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  border: 1px solid #eaeaea;
+  height: 52px;
+
+  .upload-icon-pos {
+    position: absolute;
+    left: 48px;
+    top: 4px;
+  }
+
+  html:lang("ar") & {
+    position: absolute;
+    right: 0;
+  }
+  .uploaded-img {
+    max-width: 200px;
+    margin-top: 20px;
+  }
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  margin-top: 10px;
+}

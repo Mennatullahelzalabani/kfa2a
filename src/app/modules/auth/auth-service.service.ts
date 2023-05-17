@@ -10,7 +10,7 @@ export class AuthServiceService {
   constructor(private httpclient: HttpClient) {}
 
   sendData(loginData: any) {
-    return this.httpclient.post(`${this.baseURL}/Auth/Login`, loginData);
+    return this.httpclient.post(`${this.baseURL}/api/Auth/Login`, loginData);
   }
   send(forgetpassword: any) {
     return this.httpclient.post(

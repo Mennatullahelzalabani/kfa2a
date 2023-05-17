@@ -1,0 +1,578 @@
+<app-header-dashboard [pageTitle]="pageTitleValue"></app-header-dashboard>
+
+<div class="request-wrapper">
+  <form class="form" [formGroup]="deviceForm">
+    <h2 class="heading">معلومات الجهاز</h2>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group check-box">
+          <label for="isTrailer" class="form-lable">
+            قاطرة <span class="required">*</span>
+          </label>
+          <input
+            formControlName="isTrailer"
+            class="check-mark"
+            type="radio"
+            id="arabic"
+            name="isTrailer"
+            value="true"
+            checked="true"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('isTrailer')!.errors &&
+                (deviceForm.get('isTrailer')?.dirty ||
+                  deviceForm.get('isTrailer')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['isTrailer']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group check-box">
+          <label for="isTrailer" class="form-lable">
+            مقطورة <span class="required">*</span>
+          </label>
+          <input
+            class="check-mark"
+            type="radio"
+            id="arabic2"
+            name="isTrailer"
+            value="false"
+            formControlName="isTrailer"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('isTrailer')!.errors &&
+                (deviceForm.get('isTrailer')?.dirty ||
+                  deviceForm.get('isTrailer')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['isTrailer']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="comment" class="form-lable"
+            >وصف الجهاز <span class="required">*</span></label
+          >
+          <input
+            formControlName="devicDescription"
+            class="form-textarea"
+            id="message"
+            name="text"
+            placeholder="أدخل وصف الجهاز"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('devicDescription')!.errors &&
+                (deviceForm.get('devicDescription')?.dirty ||
+                  deviceForm.get('devicDescription')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['devicDescription']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            اسم الجهاز <span class="required">*</span></label
+          >
+          <input
+            formControlName="deviceName"
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="ادخل اسم الجهاز"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('deviceName')!.errors &&
+                (deviceForm.get('deviceName')?.dirty ||
+                  deviceForm.get('deviceName')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['deviceName']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="name" class="form-lable">
+            بلد صنع الجهاز
+            <span class="required">*</span>
+          </label>
+
+          <input
+            formControlName="madeIn"
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="بلد صنع الجهاز"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('madeIn')!.errors &&
+                (deviceForm.get('madeIn')?.dirty ||
+                  deviceForm.get('madeIn')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span *ngIf="deviceForm.controls['madeIn']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="sel1" class="form-lable">
+            اسم جهة الإختبار <span class="required">*</span></label
+          >
+          <select class="form-select" formControlName="testerId">
+            <option>اختر اسم جهة الإختبار</option>
+            <option value="0">One</option>
+            <option value="1">two</option>
+            <option value="2">three</option>
+          </select>
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('testerId')!.errors &&
+                (deviceForm.get('testerId')?.dirty ||
+                  deviceForm.get('testerId')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span *ngIf="deviceForm.controls['testerId']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="sel1" class="form-lable">
+            نوع الإختبار <span class="required">*</span></label
+          >
+          <select class="form-select" formControlName="testRequestTypeId">
+            <option>نوع الإختبار</option>
+            <option [ngValue]="1">One</option>
+            <option [ngValue]="2">two</option>
+            <option [ngValue]="3">three</option>
+          </select>
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('testRequestTypeId')!.errors &&
+                (deviceForm.get('testRequestTypeId')?.dirty ||
+                  deviceForm.get('testRequestTypeId')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['testRequestTypeId']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="name" class="form-lable"
+            >الرقم التسلسلي للجهاز
+            <span class="required">*</span>
+          </label>
+
+          <input
+            formControlName="deviceSerial"
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="ادخل الرقم التسلسلي للجهاز "
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('deviceSerial')!.errors &&
+                (deviceForm.get('deviceSerial')?.dirty ||
+                  deviceForm.get('deviceSerial')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['deviceSerial']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6"></div>
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="name" class="form-lable"
+            >نوع المصد الهوائي <span class="required">*</span></label
+          >
+
+          <div class="flex">
+            <div class="col-3">
+              <div class="form-group check-box1">
+                <section class="example-section">
+                  <mat-checkbox
+                    class="example-margin"
+                    formControlName="airBumperIds"
+                    value="1"
+                    >Cab roof Fairing</mat-checkbox
+                  >
+                </section>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group check-box1">
+                <section class="example-section">
+                  <mat-checkbox
+                    class="example-margin"
+                    formControlName="airBumperIds"
+                    value="2"
+                    >Aerodynamics Mirrors</mat-checkbox
+                  >
+                </section>
+              </div>
+            </div>
+
+            <div class="col-3">
+              <div class="form-group check-box1">
+                <section class="example-section">
+                  <mat-checkbox
+                    class="example-margin"
+                    formControlName="airBumperIds"
+                    value="3"
+                    >Air Dams</mat-checkbox
+                  >
+                </section>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="form-group check-box1">
+                <section class="example-section">
+                  <mat-checkbox
+                    class="example-margin"
+                    formControlName="airBumperIds"
+                    value="4"
+                    >Cab Side Extender</mat-checkbox
+                  >
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" *ngIf="isTrailerVal">
+        <div class="form-group">
+          <label for="name" class="form-lable">
+            نوع المقطورة المناسب <span class="required">*</span></label
+          >
+          <div class="flex">
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="0"
+                >
+                  Long dry box van</mat-checkbox
+                >
+              </section>
+            </div>
+
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="1"
+                  >Long refrigerated box van</mat-checkbox
+                >
+              </section>
+            </div>
+
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="2"
+                  >Short dry box van</mat-checkbox
+                >
+              </section>
+            </div>
+
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="3"
+                  >Short refrigerated box van</mat-checkbox
+                >
+              </section>
+            </div>
+
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="4"
+                  >Non-box trailers</mat-checkbox
+                >
+              </section>
+            </div>
+
+            <div class="form-group check-box1">
+              <section class="example-section">
+                <mat-checkbox
+                  class="example-margin"
+                  formControlName="trailerTypeIds"
+                  value="5"
+                  >آخرى</mat-checkbox
+                >
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            اخرى <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="ادخل نوع المقطورة"
+            formControlName="trailerTypeOther"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('trailerTypeOther')!.errors &&
+                (deviceForm.get('trailerTypeOther')?.dirty ||
+                  deviceForm.get('trailerTypeOther')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['trailerTypeOther']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="!isTrailerVal">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            نوع القاطرة المناسب <span class="required">*</span></label
+          >
+          <input
+            formControlName="tractorTypeOther"
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="اختر نوع القاطرة المناسب "
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('tractorTypeOther')!.errors &&
+                (deviceForm.get('tractorTypeOther')?.dirty ||
+                  deviceForm.get('tractorTypeOther')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['tractorTypeOther']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6" *ngIf="isTrailerVal"></div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            نتيجة الإختبار <span class="required">*</span></label
+          >
+          <input
+            formControlName="testResult"
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="ادخل نتيجة الإختبار"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('testResult')!.errors &&
+                (deviceForm.get('testResult')?.dirty ||
+                  deviceForm.get('testResult')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['testResult']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            تقرير الاختبار <span class="required">*</span></label
+          >
+          <div class="d-flex align-items-center">
+            <div
+              class="upload-btn-wrapper input-icon form-control position-relative"
+            >
+              <div class="upload-icon-pos">
+                <img src="../../../../assets/images/upload.svg" alt="upload" />
+              </div>
+              <input
+                class="form-control"
+                type="file"
+                accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
+                (change)="selectAuthorityLetterUrl($event)"
+                formControlName="testReportUrl"
+                placeholder="خطاب التفويض"
+              />
+            </div>
+            <div *ngIf="startLoding" class="mx-2">
+              <img
+                class="load-img"
+                src="../../../../../assets/images/loading.gif"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <img
+            *ngIf="fileUrl != ''"
+            [src]="assetsUrl + fileUrl"
+            class="uploaded-img"
+          />
+        </div>
+      </div>
+
+      <div
+        class="error-valid-msg"
+        *ngIf="
+          (deviceForm.get('testReportUrl')!.errors &&
+            (deviceForm.get('testReportUrl')?.dirty ||
+              deviceForm.get('testReportUrl')?.touched)) ||
+          deviceFormSubmitted
+        "
+      >
+        <span
+          *ngIf="deviceForm.controls['testReportUrl']?.errors?.['required']"
+        >
+          هذا الحقل مطلوب
+        </span>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group level">
+          <label for="text" class="form-lable"> مستوى التصنيف</label>
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="C1"
+            formControlName="ratingLevel"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              (deviceForm.get('ratingLevel')!.errors &&
+                (deviceForm.get('ratingLevel')?.dirty ||
+                  deviceForm.get('ratingLevel')?.touched)) ||
+              deviceFormSubmitted
+            "
+          >
+            <span
+              *ngIf="deviceForm.controls['ratingLevel']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="check">
+      <section class="example-section">
+        <mat-checkbox class="example-margin" (change)="checkedContract($event)"
+          >أقر و أتعهد بأن جميع المعلومات المذكورة في هذا النموذج صحيحة و
+          كاملة.</mat-checkbox
+        >
+      </section>
+    </div>
+    <div class="buttons">
+      <button
+        class="button btn-primary"
+        (click)="savedata()"
+        [disabled]="deviceForm.invalid || !checked"
+      >
+        إرسال الطلب
+      </button>
+      <button class="button btn-secondary">إلغاء</button>
+    </div>
+  </form>
+</div>
+<!-- -->

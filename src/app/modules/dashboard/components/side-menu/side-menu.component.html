@@ -15,7 +15,9 @@
           />
 
           <div class="job">
-            <h3 class="name">ميسون</h3>
+            <h3 class="name">
+              {{ userInfo.nameAr }}
+            </h3>
 
             <p class="job-title">مدير النظام</p>
           </div>
@@ -32,7 +34,10 @@
               src="../../../../../assets/images/dashboard.svg"
               alt="icon"
             />
-            <a class="link" [routerLink]="['/dashboard/home-dashboard']"
+            <a
+              class="link"
+              [routerLink]="['/dashboard/home-dashboard']"
+              [routerLinkActive]="'is-active'"
               >الرئيسية</a
             >
           </div>
@@ -41,21 +46,26 @@
               src="../../../../../assets/images/streamline (2).svg"
               alt="icon"
             />
-            <a class="link" href="# ">الأجهزة المسجلة</a>
+            <a class="link">الأجهزة المسجلة</a>
           </div>
           <div class="component">
             <img
               src="../../../../../assets/images/streamlinehq-task-list.svg"
               alt=""
             />
-            <a class="link" href="# ">الطلبات المقدمة</a>
+            <a
+              class="link"
+              [routerLink]="['/dashboard/requests']"
+              [routerLinkActive]="'is-active'"
+              >الطلبات المقدمة</a
+            >
           </div>
           <div class="component">
             <img
               src="../../../../../assets/images/streamlinehq-multiple-users.svg"
               alt="icon"
             />
-            <a class="link" href="#">المستخدمين</a>
+            <a class="link">المستخدمين</a>
           </div>
         </div>
         <div class="part">
@@ -64,34 +74,37 @@
               src="../../../../../assets/images/streamlinehq-lab-tube.svg"
               alt="icon"
             />
-            <a class="link" href="# ">جهات الإختبار</a>
+            <a class="link">جهات الإختبار</a>
           </div>
           <div class="component">
             <img
               src="../../../../../assets/images/streamlinehq-human-resources.svg"
               alt="icon"
             />
-            <a class="link" href="#">الورش</a>
+            <a class="link">الورش</a>
           </div>
         </div>
         <div class="part">
           <div class="component">
             <img src="../../../../../assets/images/management.svg" alt="icon" />
-            <a class="link" href="#">الإعدادات</a>
+            <a class="link">الإعدادات</a>
           </div>
           <div class="component">
             <img src="../../../../../assets/images/icon.svg" alt="icon" />
-            <a class="link" href="# ">إدارة النظام</a>
+            <a class="link">إدارة النظام</a>
           </div>
           <div class="component">
             <img src="../../../../../assets/images/icon.svg" alt="icon" />
-            <a class="link" [routerLink]="['/dashboard/profile']"
+            <a
+              class="link"
+              [routerLink]="['/dashboard/profile']"
+              [routerLinkActive]="'is-active'"
               >الملف الشخصي
             </a>
           </div>
-          <div class="component">
+          <div class="component" (click)="logout()">
             <img src="../../../../../assets/images/logout.png" alt="icon" />
-            <a class="logout link" href="# ">تسجيل الخروج</a>
+            <a class="logout link">تسجيل الخروج</a>
             <img
               class="info"
               src="../../../../../assets/images/info.svg"

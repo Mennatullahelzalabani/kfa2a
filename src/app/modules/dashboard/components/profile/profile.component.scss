@@ -95,32 +95,21 @@
 
 .upload-icon-pos {
   .btn-secondary {
-    padding-bottom: 20px;
     margin-top: 30px;
-    margin-bottom: 37px;
-    width: 168px;
-    height: 48px;
+    padding-top: 5px;
+
     border-radius: 4px;
     .content {
       display: flex;
+      padding-top: 10px;
 
-      .img {
-        width: 20px;
-        height: 20px;
-        margin-top: 8px;
-      }
-      .input {
-        font-size: 14px;
-        padding-right: 10px;
-        font-weight: 600;
-        padding: 10px 12px;
+      .link {
+        text-decoration: none;
+        color: #2c6e59;
+
+        padding-right: 15px;
       }
     }
-  }
-
-  html:lang("ar") & {
-    position: absolute;
-    right: 0;
   }
 }
 

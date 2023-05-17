@@ -18,15 +18,6 @@
               placeholder="ادخل البريد الإلكتروني"
               formControlName="email"
             />
-            <div
-              class="error-valid-msg"
-              *ngIf="
-                LoginForm.controls['email'].hasError('pattern') ||
-                LoginForm.get('email')!.touched
-              "
-            >
-              صيغه البريد الالكتروني غير صحيحه
-            </div>
           </div>
         </div>
         <div class="col-6">

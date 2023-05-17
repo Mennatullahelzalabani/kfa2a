@@ -2,7 +2,10 @@
 <div class="section-1">
   <div class="heading">
     <h2 class="text">المعلومات الأساسية للشركة المصنعة</h2>
-    <button class="button btn-primary" (click)="senddata()">
+    <button
+      class="button btn-primary"
+      [routerLink]="['/dashboard/edit-profile']"
+    >
       تعديل الملف الشخصي
     </button>
   </div>
@@ -18,74 +21,78 @@
       <li class="primary col-3">
         اسم الشركة المصنعة ( بالإنجليزية )
         <ul class="listsecodary">
-          <li class="secondary">El-hamd</li>
+          <li class="secondary">
+            {{ userInfo?.nameEn }}
+          </li>
         </ul>
       </li>
       <li class="primary col-3">
         اسم الشركة المصنعة ( بالعربية )
         <ul class="listsecodary">
-          <li class="secondary">الحمد</li>
+          <li class="secondary">{{ userInfo?.nameAr }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         رقم للتواصل
         <ul class="listsecodary">
-          <li class="secondary">01232323332</li>
+          <li class="secondary">{{ userInfo?.phone }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         رقم الفاكس
         <ul class="listsecodary">
-          <li class="secondary">022376289</li>
+          <li class="secondary">{{ userInfo?.fax }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         الصندوق البريدي
         <ul class="listsecodary">
-          <li class="secondary">ص.ب 288</li>
+          <li class="secondary">{{ userInfo?.poBox }}</li>
         </ul>
       </li>
 
       <li class="primary col-3">
         الرمز البريدي
         <ul class="listsecodary">
-          <li class="secondary">11722</li>
+          <li class="secondary">{{ userInfo?.postcode }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         البلد
         <ul class="listsecodary">
-          <li class="secondary">السعودية</li>
+          <li class="secondary">{{ userInfo?.country.nameAr }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         المدينة
         <ul class="listsecodary">
-          <li class="secondary">الرياض</li>
+          <li class="secondary">{{ userInfo?.city }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         العنوان
         <ul class="listsecodary">
-          <li class="secondary">7595 طريق عثمان بن عفان، الفلاح</li>
+          <li class="secondary">{{ userInfo?.address }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         رقم السجل التجاري
         <ul class="listsecodary">
-          <li class="secondary">81271278282</li>
+          <li class="secondary">{{ userInfo?.commercialRegisterstring }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         تاريخ إنتهاء السجل التجاري
         <ul class="listsecodary">
-          <li class="secondary">12/12/2023</li>
+          <li class="secondary">
+            {{ userInfo?.commercialRegisterstringEndDate }}
+          </li>
         </ul>
       </li>
       <li class="primary col-3">
         الموقع الإلكتروني
         <ul class="listsecodary">
-          <li class="secondary">www.elhamd.com</li>
+          <li class="secondary">{{ userInfo?.website }}</li>
         </ul>
       </li>
     </div>
@@ -98,27 +105,24 @@
     <div class="upload-btn-wrapper form-control">
       <div class="position-relative">
         <div class="upload-icon-pos">
-          <button class="btn btn-secondary">
+          <button class="button btn-secondary">
             <div class="content">
               <img
                 class="img"
                 src="../../../../assets/images/upload1.svg"
                 alt="upload"
               />
-              <p class="input">خطاب التفويض</p>
+              <a
+                class="link"
+                [href]="assetsUrl + userInfo?.authorityLetterUrl"
+                target="_blank"
+                >خطاب التفويض
+              </a>
             </div>
           </button>
         </div>
       </div>
-      <input
-        class="form-control"
-        type="file"
-        accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
-        (change)="selectAuthorityLetterUrl($event)"
-        formControlName="authorityLetterUrl"
-      />
     </div>
-    <img *ngIf="fileUrl != ''" [src]="assetsUrl + fileUrl" />
   </form>
 </div>
 
@@ -130,25 +134,25 @@
       <li class="primary col-3">
         اسم ممثل الشركة المصنعة
         <ul class="listsecodary">
-          <li class="secondary">أحمد محمد إسماعيل</li>
+          <li class="secondary">{{ userInfo?.contact1_name }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         رقم للتواصل
         <ul class="listsecodary">
-          <li class="secondary">08902384998</li>
+          <li class="secondary">{{ userInfo?.contact1_phone }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         البريد الإلكتروني
         <ul class="listsecodary">
-          <li class="secondary">mail@mail.com</li>
+          <li class="secondary">{{ userInfo?.appUser.email }}</li>
         </ul>
       </li>
       <li class="primary col-3">
         المسمى الوظيفي
         <ul class="listsecodary">
-          <li class="secondary">مدير المبيعات</li>
+          <li class="secondary">{{ userInfo?.contact1_position }}</li>
         </ul>
       </li>
     </div>
@@ -162,7 +166,7 @@
       <li class="primary col-3">
         البريد الإلكتروني الرسمي للجهة
         <ul class="listsecodary">
-          <li class="secondary">mail@mail.com</li>
+          <li class="secondary">{{ userInfo?.contact1_email }}</li>
         </ul>
       </li>
     </div>

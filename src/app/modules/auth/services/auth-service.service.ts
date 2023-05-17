@@ -13,6 +13,9 @@ export class AuthServiceService {
   uploadFile(data: any) {
     return this.httpClient.post(`${this.baseURL}/UploadFile`, data);
   }
+  getAllCountries() {
+    return this.httpClient.get(`${this.baseURL}/api/Country/GetAllCountries`);
+  }
   register(data: any) {
     return this.httpClient.post(`${this.baseURL}/api/Register/Factory`, data);
   }

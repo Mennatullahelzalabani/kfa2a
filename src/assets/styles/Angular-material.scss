@@ -25,7 +25,9 @@ mat-accordion {
     }
   }
 }
-
+.mdc-text-field--filled.mdc-text-field--no-label .mdc-text-field__input {
+  height: 0 !important;
+}
 mat-stepper {
   margin-top: -150px;
   background-color: transparent !important;
@@ -88,12 +90,17 @@ mat-stepper {
   font-weight: 800;
   font-family: "original";
   display: inline;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  &:hover {
+    background-color: transparent;
+  }
 }
 .date {
   margin-top: 32px;
-}
-.date-pick {
-  margin-top: 12px;
 }
 
 .date-label1 {
@@ -102,7 +109,7 @@ mat-stepper {
   font-family: "original";
 }
 .mat-mdc-tab-header {
-  width: 50%;
+  width: 60%;
 }
 .mdc-tab {
   color: #979797;
@@ -131,4 +138,81 @@ mat-stepper {
 }
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
   color: rgba(0, 0, 0, 0.6);
+}
+
+.mat-mdc-tab-body-content {
+  overflow: hidden !important;
+}
+.mat-mdc-checkbox label {
+  font-family: 16px;
+  font-weight: 600;
+  font-family: "original";
+  color: #999999;
+}
+.form-group1 {
+  .mat-mdc-checkbox label {
+    font-family: 16px;
+    font-weight: 600;
+    font-family: "original";
+    color: #000000;
+  }
+}
+
+button:not(:disabled) {
+  border: none;
+  color: #000000;
+  font-weight: 800;
+}
+.mat-datepicker-input {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined)
+  .mat-mdc-form-field-infix {
+  padding-top: 12px;
+  padding-bottom: 0;
+  padding-right: 10px;
+  font-family: "original";
+  font-size: 16px;
+  font-weight: 600;
+  color: #999999;
+}
+
+.mat-mdc-menu-item .mdc-list-item {
+  font-family: "original";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.mat-mdc-menu-content,
+.mat-mdc-menu-content .mat-mdc-menu-item .mdc-list-item__primary-text {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "original";
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 18px;
+  padding-top: 18px;
+  padding-right: 18px;
+  padding-left: 40px;
+}
+
+.mat-mdc-checkbox
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background {
+  border-color: #2c6e59 !important;
+  background-color: #2c6e59 !important;
+}
+
+.toast-container .ngx-toastr {
+  position: fixed;
+}
+
+.mat-mdc-checkbox.mat-accent {
+  --mdc-checkbox-selected-checkmark-color: #ffffff;
 }

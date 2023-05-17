@@ -13,7 +13,7 @@ import {
   MatExpansionModule,
   MAT_ACCORDION,
 } from '@angular/material/expansion';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import {
@@ -21,6 +21,7 @@ import {
   MatSidenavModule,
 } from '@angular/material/sidenav';
 import { WebsiteIndexComponent } from './modules/website/website-index/website-index.component';
+import { RequestInterceptor } from './modules/shared/request.interceptor';
 
 @NgModule({
   declarations: [AppComponent, WebsiteIndexComponent],
@@ -36,7 +37,9 @@ import { WebsiteIndexComponent } from './modules/website/website-index/website-i
     MatSidenavModule,
   ],
 
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -10,13 +10,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  emailPattern = '[a-z0-9._%+-]{1,}@[a-z0-9.-]{2,}[.]{1}[a-z]{2,}$';
-
   LoginForm = new FormGroup({
-    email: new FormControl('', [
-      Validators.pattern(this.emailPattern),
-      Validators.required,
-    ]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required),
   });
 
@@ -27,15 +22,17 @@ export class LoginComponent {
   ) {}
 
   sendData() {
-    this.router.navigate(['/dashboard']);
-    // this.loginservice.sendData(this.LoginForm.value).subscribe(
-    //   (res: any) => {
-    //     this.toastr.success('تم التسجيل بنجاح');
-    //   },
-    //   (err) => {
-    //     this.toastr.error(err.error.messageAr);
-    //   }
-    // );
+    this.loginservice.sendData(this.LoginForm.value).subscribe(
+      (res: any) => {
+        this.toastr.success('تم التسجيل بنجاح');
+        this.router.navigate(['/dashboard/profile']);
+        localStorage.setItem('token', res.access_token);
+        localStorage.setItem('user', JSON.stringify(res.user));
+      },
+      (err) => {
+        this.toastr.error(err.error.messageAr);
+      }
+    );
   }
   pageTitleValue = {
     title: '  تسجيل الدخول',

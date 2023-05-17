@@ -19,18 +19,9 @@
                   name="isSaudi"
                   value="1"
                   formControlName="isSaudi"
+                  checked="true"
+                  (change)="getRadioVal($event)"
                 />
-                <div
-                  class="error-valid-msg"
-                  *ngIf="
-                    (firstForm.get('nameAr')!.errors &&
-                      (firstForm.get('nameAr')?.dirty ||
-                        firstForm.get('nameAr')?.touched)) ||
-                    firstFormSubmitted
-                  "
-                >
-                  برجاء ادخال قيمه
-                </div>
               </div>
             </div>
             <div class="col-6">
@@ -44,6 +35,7 @@
                   id="arabic"
                   name="arabic"
                   value="0"
+                  (change)="getRadioVal($event)"
                 />
               </div>
             </div>
@@ -65,11 +57,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                    firstForm.get('nameEn')!.errors?.['required'] &&
-                    firstForm.get('nameEn')!.touched 
+                    (firstForm.get('nameEn')!.errors &&
+                      (firstForm.get('nameEn')?.dirty ||
+                        firstForm.get('nameEn')?.touched)) ||
+                    firstFormSubmitted
                   "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['nameEn']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -84,17 +82,23 @@
                   type="name"
                   name="name"
                   id="name"
-                  placeholder="  اسم الشركة المصنعة ( بالعربية )"
+                  placeholder="اسم الشركة المصنعة ( بالعربية )"
                   formControlName="nameAr"
                 />
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('nameAr')!.errors?.['required'] &&
-                  firstForm.get('nameAr')!.touched
-                "
+                    (firstForm.get('nameAr')!.errors &&
+                      (firstForm.get('nameAr')?.dirty ||
+                        firstForm.get('nameAr')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['nameAr']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -117,10 +121,16 @@
                   class="error-valid-msg"
                   *ngIf="
                   firstForm.get('phone')!.errors?.['required'] &&
-                  firstForm.get('phone')!.touched
+                  (firstForm.get('phone')?.dirty ||
+                  firstForm.get('phone')?.touched) ||
+              firstFormSubmitted
                 "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['phone']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -139,11 +149,15 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('fax')!.errors?.['required'] &&
-                  firstForm.get('fax')!.touched
-                "
+                    (firstForm.get('fax')!.errors &&
+                      (firstForm.get('fax')?.dirty ||
+                        firstForm.get('fax')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span *ngIf="firstForm.controls['fax']?.errors?.['required']">
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -163,11 +177,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('poBox')!.errors?.['required'] &&
-                  firstForm.get('poBox')!.touched
-                "
+                    (firstForm.get('poBox')!.errors &&
+                      (firstForm.get('poBox')?.dirty ||
+                        firstForm.get('poBox')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['poBox']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -187,11 +207,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('postcode')!.errors?.['required'] &&
-                  firstForm.get('postcode')!.touched
-                "
+                    (firstForm.get('postcode')!.errors &&
+                      (firstForm.get('postcode')?.dirty ||
+                        firstForm.get('postcode')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['postcode']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -203,18 +229,28 @@
                 >
                 <select class="form-select" formControlName="countryId">
                   <option>البلد</option>
-                  <option [ngValue]="1">One</option>
-                  <option [ngValue]="2">Two</option>
-                  <option [ngValue]="3">Three</option>
+                  <option [ngValue]="null">One</option>
+                  <option
+                    [ngValue]="country.id"
+                    *ngFor="let country of allCountries"
+                  >
+                    {{ country.nameAr }}
+                  </option>
                 </select>
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('countryId')!.errors?.['required'] &&
-                  firstForm.get('countryId')!.touched
-                "
+                    (firstForm.get('countryId')!.errors &&
+                      (firstForm.get('countryId')?.dirty ||
+                        firstForm.get('countryId')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['countryId']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -234,11 +270,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('city')!.errors?.['required'] &&
-                  firstForm.get('city')!.touched
-                "
+                    (firstForm.get('city')!.errors &&
+                      (firstForm.get('city')?.dirty ||
+                        firstForm.get('city')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['city']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -249,20 +291,24 @@
                 >
                 <input
                   class="form-control"
-                  type="name"
-                  name="name"
-                  id="name"
+                  type="text"
                   placeholder="العنوان"
                   formControlName="address"
                 />
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('address')!.errors?.['required'] &&
-                  firstForm.get('address')!.touched
-                "
+                    (firstForm.get('address')!.errors &&
+                      (firstForm.get('address')?.dirty ||
+                        firstForm.get('address')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['address']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -282,11 +328,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  firstForm.get('commercialRegisterstring')!.errors?.['required'] &&
-                  firstForm.get('commercialRegisterstring')!.touched
-                "
+                    (firstForm.get('commercialRegisterstring')!.errors &&
+                      (firstForm.get('commercialRegisterstring')?.dirty ||
+                        firstForm.get('commercialRegisterstring')?.touched)) ||
+                    firstFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="firstForm.controls['commercialRegisterstring']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -315,35 +367,37 @@
                   <div
                     class="error-valid-msg"
                     *ngIf="
-                    firstForm.get('commercialRegisterstringEndDate')!.errors?.['required'] &&
-                    firstForm.get('commercialRegisterstringEndDate')!.touched
-                  "
+                      (firstForm.get('commercialRegisterstringEndDate')!
+                        .errors &&
+                        (firstForm.get('commercialRegisterstringEndDate')
+                          ?.dirty ||
+                          firstForm.get('commercialRegisterstringEndDate')
+                            ?.touched)) ||
+                      firstFormSubmitted
+                    "
                   >
-                    برجاء ادخال قيمه
+                    <span
+                      *ngIf="firstForm.controls['commercialRegisterstringEndDate']?.errors?.['required']"
+                    >
+                      هذا الحقل مطلوب
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label for="email" class="form-lable"> الموقع الإلكتروني</label>
+                <label for="website" class="form-lable">
+                  الموقع الإلكتروني</label
+                >
                 <input
                   class="form-control"
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="  الموقع الإلكتروني  "
+                  type="website"
+                  name="website"
+                  id="website"
+                  placeholder="الموقع الإلكتروني"
                   formControlName="website"
                 />
-                <div
-                  class="error-valid-msg"
-                  *ngIf="
-                  firstForm.get('website')!.errors?.['required'] &&
-                  firstForm.get('website')!.touched
-                "
-                >
-                  برجاء ادخال قيمه
-                </div>
               </div>
             </div>
           </div>
@@ -369,11 +423,17 @@
               خطاب التفويض <span class="required">*</span>
             </h3>
             <a class="logo">
-              <span
-                matTooltip="الشخص المتقدم للتسجيل مخول من قبل الشركة المصنعة للتسجيل وتحديث معلومات الشركة المصنعة. 
-          يجب أن يحتوي الخطاب على رقم السجل التجاري في حال كان المصنع سعودي "
-              >
-                <img src="../../../../assets/images/info.svg" alt="info" />
+              <span>
+                <button mat-button [matMenuTriggerFor]="menu">
+                  <img src="../../../../assets/images/info.svg" alt="info" />
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    الشخص المتقدم للتسجيل مخول من قبل الشركة المصنعة للتسجيل
+                    وتحديث معلومات الشركة المصنعة. يجب أن يحتوي الخطاب على رقم
+                    السجل التجاري في حال كان المصنع سعودي
+                  </button>
+                </mat-menu>
               </span>
             </a>
           </div>
@@ -390,9 +450,14 @@
               accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
               (change)="selectAuthorityLetterUrl($event)"
               formControlName="authorityLetterUrl"
+              placeholder="خطاب التفويض"
             />
           </div>
-          <img *ngIf="fileUrl != ''" [src]="assetsUrl + fileUrl" />
+          <img
+            *ngIf="fileUrl != ''"
+            [src]="assetsUrl + fileUrl"
+            class="uploaded-img"
+          />
         </form>
         <div class="buttons">
           <button class="btn-secondary" mat-button matStepperPrevious>
@@ -433,11 +498,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('contact1_name')!.errors?.['required'] &&
-                thirdForm.get('contact1_name')!.touched
-              "
+                    (thirdForm.get('contact1_name')!.errors &&
+                      (thirdForm.get('contact1_name')?.dirty ||
+                        thirdForm.get('contact1_name')?.touched)) ||
+                    thirdFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['contact1_name']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -459,11 +530,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('contact1_phone')!.errors?.['required'] &&
-                thirdForm.get('contact1_phone')!.touched
-              "
+                    (thirdForm.get('contact1_phone')!.errors &&
+                      (thirdForm.get('contact1_phone')?.dirty ||
+                        thirdForm.get('contact1_phone')?.touched)) ||
+                    thirdFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['contact1_phone']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -484,11 +561,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('contact1_email')!.errors?.['required'] &&
-                thirdForm.get('contact1_email')!.touched
-              "
+                    (thirdForm.get('contact1_email')!.errors &&
+                      (thirdForm.get('contact1_email')?.dirty ||
+                        thirdForm.get('contact1_email')?.touched)) ||
+                    thirdFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['contact1_email']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -503,17 +586,23 @@
                   type="name"
                   name="name"
                   id="name"
-                  placeholder="     المسمى الوظيفي"
+                  placeholder=" المسمى الوظيفي"
                   formControlName="contact1_position"
                 />
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('contact1_position')!.errors?.['required'] &&
-                thirdForm.get('contact1_position')!.touched
-              "
+                    (thirdForm.get('contact1_position')!.errors &&
+                      (thirdForm.get('contact1_position')?.dirty ||
+                        thirdForm.get('contact1_position')?.touched)) ||
+                    thirdFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['contact1_position']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -530,17 +619,23 @@
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="   البريد الإلكتروني الرسمي للجهة "
+                  placeholder="البريد الإلكتروني الرسمي للجهة "
                   formControlName="email"
                 />
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('email')!.errors?.['required'] &&
-                      thirdForm.get('email')!.touched
-                    "
+                    (thirdForm.get('email')!.errors &&
+                      (thirdForm.get('email')?.dirty ||
+                        thirdForm.get('email')?.touched)) ||
+                    thirdFormSubmitted
+                  "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['email']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -562,11 +657,17 @@
                 <div
                   class="error-valid-msg"
                   *ngIf="
-                  thirdForm.get('password')!.errors?.['required'] &&
-                    thirdForm.get('password')!.touched
+                    (thirdForm.get('password')!.errors &&
+                      (thirdForm.get('password')?.dirty ||
+                        thirdForm.get('password')?.touched)) ||
+                    thirdFormSubmitted
                   "
                 >
-                  برجاء ادخال قيمه
+                  <span
+                    *ngIf="thirdForm.controls['password']?.errors?.['required']"
+                  >
+                    هذا الحقل مطلوب
+                  </span>
                 </div>
               </div>
             </div>
@@ -583,15 +684,6 @@
                   placeholder="  تأكيد كلمة المرور  "
                   formControlName="password"
                 />
-                <div
-                  class="error-valid-msg"
-                  *ngIf="
-                  thirdForm.get('password')!.errors?.['required'] &&
-                    thirdForm.get('password')!.touched
-                  "
-                >
-                  برجاء ادخال قيمه
-                </div>
               </div>
             </div>
           </div>

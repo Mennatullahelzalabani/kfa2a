@@ -13,4 +13,7 @@ export class WebsiteServiceService {
   sendContactData(data: any) {
     return this.httpClient.post(`${this.baseURL}/ContactUs`, data);
   }
+  getAllCountries() {
+    return this.httpClient.get(`${this.baseURL}/api/Country/GetAllCountries`);
+  }
 }

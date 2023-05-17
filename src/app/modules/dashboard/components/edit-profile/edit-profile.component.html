@@ -1,0 +1,549 @@
+<app-header-dashboard [pageTitle]="pageTitleValue"></app-header-dashboard>
+<div class="form-wrapper">
+  <form class="form" [formGroup]="firstForm">
+    <h2 class="heading">المعلومات الأساسية للشركة المصنعة</h2>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group check-box">
+          <label for="name" class="form-lable"
+            >مصنع سعودي <span class="required">*</span>
+          </label>
+          <input
+            class="check-mark"
+            type="radio"
+            id="arabic"
+            name="isSaudi"
+            value="1"
+            formControlName="isSaudi"
+            checked="true"
+            (change)="getRadioVal($event)"
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group check-box">
+          <label for="name" class="form-lable">
+            مصنع غير سعودي <span class="required">*</span>
+          </label>
+          <input
+            class="check-mark"
+            type="radio"
+            id="arabic"
+            name="arabic"
+            value="0"
+            (change)="getRadioVal($event)"
+          />
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="name" class="form-lable"
+            >اسم الشركة المصنعة ( بالإنجليزية )
+            <span class="required">*</span>
+          </label>
+
+          <input
+            class="form-control"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="اسم الشركة المصنعة ( بالإنجليزية ) "
+            formControlName="nameEn"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('nameEn')!.errors &&
+              (firstForm.get('nameEn')?.dirty ||
+                firstForm.get('nameEn')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['nameEn']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            اسم الشركة المصنعة ( بالعربية )
+            <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="اسم الشركة المصنعة ( بالعربية )"
+            formControlName="nameAr"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('nameAr')!.errors &&
+              (firstForm.get('nameAr')?.dirty ||
+                firstForm.get('nameAr')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['nameAr']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="phone" class="form-lable"
+            >رقم للتواصل <span class="required">*</span></label
+          >
+
+          <input
+            class="form-control"
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="ادخل رقم للتواصل "
+            formControlName="phone"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+                firstForm.get('phone')!.errors?.['required'] &&
+                (firstForm.get('phone')?.dirty ||
+                firstForm.get('phone')?.touched) 
+              "
+          >
+            <span *ngIf="firstForm.controls['phone']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="phone" class="form-lable">رقم الفاكس</label>
+
+          <input
+            class="form-control"
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="ادخل رقم الفاكس   "
+            formControlName="fax"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('fax')!.errors &&
+              (firstForm.get('fax')?.dirty || firstForm.get('fax')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['fax']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="email" class="form-lable">
+            الصندوق البريدي <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            id="email"
+            placeholder=" ادخل الصندوق البريدي"
+            formControlName="poBox"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('poBox')!.errors &&
+              (firstForm.get('poBox')?.dirty || firstForm.get('poBox')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['poBox']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            الرمز البريدي <span class="required"> *</span></label
+          >
+          <input
+            class="form-control"
+            type="text"
+            name="number"
+            id="number"
+            placeholder="ادخل الرمز البريدي"
+            formControlName="postcode"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('postcode')!.errors &&
+              (firstForm.get('postcode')?.dirty ||
+                firstForm.get('postcode')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['postcode']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="sel1" class="form-lable">
+            البلد <span class="required">*</span></label
+          >
+          <select class="form-select" formControlName="countryId">
+            <option>البلد</option>
+            <option [ngValue]="null">One</option>
+            <option [ngValue]="country.id" *ngFor="let country of allCountries">
+              {{ country.nameAr }}
+            </option>
+          </select>
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('countryId')!.errors &&
+              (firstForm.get('countryId')?.dirty ||
+                firstForm.get('countryId')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['countryId']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable"
+            >المدينة <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="المدينة"
+            formControlName="city"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('city')!.errors &&
+              (firstForm.get('city')?.dirty || firstForm.get('city')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['city']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable"
+            >العنوان <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="text"
+            placeholder="العنوان"
+            formControlName="address"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('address')!.errors &&
+              (firstForm.get('address')?.dirty ||
+                firstForm.get('address')?.touched)
+            "
+          >
+            <span *ngIf="firstForm.controls['address']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            رقم السجل التجاري <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="text"
+            name="number"
+            id="number"
+            placeholder="  رقم السجل التجاري"
+            formControlName="commercialRegisterstring"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('commercialRegisterstring')!.errors &&
+              (firstForm.get('commercialRegisterstring')?.dirty ||
+                firstForm.get('commercialRegisterstring')?.touched)
+            "
+          >
+            <span
+              *ngIf="firstForm.controls['commercialRegisterstring']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group date">
+          <label for="date" class="date-label col-form-label"
+            >تاريخ إنتهاء السجل التجاري <span class="required">*</span></label
+          >
+          <div class="date-pick">
+            <mat-form-field appearance="fill">
+              <mat-label class="date-label1">ادخل تاريخ الإنتهاء</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="commercialRegisterstringEndDate"
+              />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <div
+              class="error-valid-msg"
+              *ngIf="
+                firstForm.get('commercialRegisterstringEndDate')!.errors &&
+                (firstForm.get('commercialRegisterstringEndDate')?.dirty ||
+                  firstForm.get('commercialRegisterstringEndDate')?.touched)
+              "
+            >
+              <span
+                *ngIf="firstForm.controls['commercialRegisterstringEndDate']?.errors?.['required']"
+              >
+                هذا الحقل مطلوب
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="website" class="form-lable"> الموقع الإلكتروني</label>
+          <input
+            class="form-control"
+            type="website"
+            name="website"
+            id="website"
+            placeholder="الموقع الإلكتروني"
+            formControlName="website"
+          />
+        </div>
+      </div>
+    </div>
+
+    <h2 class="heading">
+      معلومات اعتماد الشركة المصنعة <span class="required">*</span>
+    </h2>
+    <!-- <h3 class="heading1">خطاب التفويض</h3> -->
+
+    <div class="col-6">
+      <div class="form-group">
+        <label for="text" class="form-lable"> خطاب التفويض </label>
+        <div
+          class="upload-btn-wrapper input-icon form-control position-relative"
+        >
+          <div class="upload-icon-pos">
+            <img src="../../../../assets/images/upload.svg" alt="upload" />
+          </div>
+          <input
+            class="form-control"
+            type="file"
+            accept="image/*,.pdf,xlsx,.xls,.csv,.doc"
+          />
+
+          <img *ngIf="fileUrl != ''" [src]="assetsUrl + fileUrl" />
+        </div>
+      </div>
+    </div>
+    <img
+      *ngIf="fileUrl != ''"
+      [src]="assetsUrl + fileUrl"
+      class="uploaded-img"
+    />
+
+    <div class="row">
+      <h2 class="heading">معلومات ممثل الشركة المصنعة</h2>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="phone" class="form-lable"
+            >اسم ممثل الشركة المصنعة <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder="اسم ممثل الشركة المصنعة "
+            formControlName="contact1_name"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('contact1_name')!.errors &&
+              (firstForm.get('contact1_name')?.dirty ||
+                firstForm.get('contact1_name')?.touched)
+            "
+          >
+            <span
+              *ngIf="firstForm.controls['contact1_name']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="phone" class="form-lable"
+            >رقم للتواصل <span class="required">*</span></label
+          >
+
+          <input
+            class="form-control"
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="ادخل رقم للتواصل "
+            formControlName="contact1_phone"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('contact1_phone')!.errors &&
+              (firstForm.get('contact1_phone')?.dirty ||
+                firstForm.get('contact1_phone')?.touched)
+            "
+          >
+            <span
+              *ngIf="firstForm.controls['contact1_phone']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="email" class="form-lable">
+            البريد الإلكتروني <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="   البريد الإلكتروني"
+            formControlName="contact1_email"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('contact1_email')!.errors &&
+              (firstForm.get('contact1_email')?.dirty ||
+                firstForm.get('contact1_email')?.touched)
+            "
+          >
+            <span
+              *ngIf="firstForm.controls['contact1_email']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="form-group">
+          <label for="text" class="form-lable">
+            المسمى الوظيفي
+            <span class="required">*</span></label
+          >
+          <input
+            class="form-control"
+            type="name"
+            name="name"
+            id="name"
+            placeholder=" المسمى الوظيفي"
+            formControlName="contact1_position"
+          />
+          <div
+            class="error-valid-msg"
+            *ngIf="
+              firstForm.get('contact1_position')!.errors &&
+              (firstForm.get('contact1_position')?.dirty ||
+                firstForm.get('contact1_position')?.touched)
+            "
+          >
+            <span
+              *ngIf="firstForm.controls['contact1_position']?.errors?.['required']"
+            >
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <h2 class="heading">معلومات الحساب</h2>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="email" class="form-lable">
+              البريد الإلكتروني الرسمي للجهة
+              <span class="required">*</span></label
+            >
+            <input
+              class="form-control"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="البريد الإلكتروني الرسمي للجهة "
+              formControlName="email"
+            />
+            <div
+              class="error-valid-msg"
+              *ngIf="
+                firstForm.get('email')!.errors &&
+                (firstForm.get('email')?.dirty ||
+                  firstForm.get('email')?.touched)
+              "
+            >
+              <span *ngIf="firstForm.controls['email']?.errors?.['required']">
+                هذا الحقل مطلوب
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="buttons">
+    <button class="button btn-primary">حفظ التعديلات</button>
+    <button class="button btn-secondary">إلغاء</button>
+  </div>
+</div>

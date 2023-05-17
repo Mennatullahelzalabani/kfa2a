@@ -1,0 +1,502 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <div class="content">
+        <p class="p1">لوحة التحكم</p>
+        <p class="p2">الطلبات المقدمة</p>
+      </div>
+
+      <div class="second">
+        <ul class="left">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              EN
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#"></a>
+            </div>
+          </li>
+        </ul>
+        <button
+          class="button btn-secondary"
+          [routerLink]="['/dashboard/add-device']"
+        >
+          تسجيل جهاز جديد
+        </button>
+        <div class="image">
+          <img
+            class="img"
+            src="../../../../../assets/images/notification.svg"
+            alt="notification"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form class="table-1" [formGroup]="filterForm">
+  <div class="heading">
+    <h2 class="header">الطلبات المقدمة</h2>
+    <div class="content">
+      <p class="sort">ترتيب حسب</p>
+      <div class="dropdown">
+        <select class="form-select arrange-select" formControlName="isNew">
+          <option>الأحدث</option>
+          <option [ngValue]="null">One</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="inputs">
+      <div class="row mx-0">
+        <div class="col-6">
+          <form class="form-group">
+            <input
+              type="text"
+              placeholder="   ابحث برقم الطلب /اسم الجهاز / اسم الشركة المصنعة / رقم VIN"
+              class="form-control"
+              formControlName="reqNumber"
+            />
+
+            <button class="search" type="button">
+              <img src="../../../../../assets/images/search.svg" alt="" />
+            </button>
+          </form>
+        </div>
+        <div class="col-3">
+          <div class="dropdown">
+            <select class="form-select" formControlName="stateId">
+              <option selected>حالة الطلب</option>
+              <option [ngValue]="null">One</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="dropdown">
+            <select class="form-select" formControlName="isTrailer">
+              <option>نوع الطلب</option>
+              <option [ngValue]="null">One</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="date-pick">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                class="form-control"
+                placeholder="التاريخ من"
+                formControlName="dateFrom"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="date-pick">
+            <mat-form-field>
+              <input
+                matInput
+                [matDatepicker]="picker2"
+                class="form-control"
+                formControlName="dateTo"
+                placeholder=" التاريخ إلي"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker2"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="col-3">
+          <div class="dropdown">
+            <select class="form-select" formControlName="VehicleVIN">
+              <option>نوع المركبة</option>
+              <option [ngValue]="null">One</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3 d-flex justify-content-end">
+          <div class="delete">
+            <a class="link">مسح الكل</a>
+            <button class="btn btn-primary">بحث</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table-wrap">
+    <thead>
+      <tr>
+        <th class="head" scope="col">رقم الطلب</th>
+        <th class="head" scope="col">اسم الجهاز</th>
+        <th class="head" scope="col">نوع المركبة</th>
+
+        <th class="head" scope="col">نوع الطلب</th>
+        <th class="head" scope="col">تاريخ الطلب</th>
+        <th class="head" scope="col">حالة الطلب</th>
+        <th class="head" scope="col">الإجراء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of devicelist">
+        <th class="head-row" scope="row">{{ item?.id }}</th>
+        <td class="content">{{ item?.deviceName }}</td>
+        <td class="content">{{ item?.isTrailer ? "مقطوره" : "قاطره" }}</td>
+
+        <td class="content">
+          <span *ngIf="item.isNew == true"> تسجيل جهاز جديد </span>
+          <span *ngIf="item.isNew == false"> تعديل بيانات </span>
+        </td>
+        <td class="content">{{ item?.createdDate | date : "dd-MM-YYYY" }}</td>
+        <td>
+          <span
+            class="status"
+            [ngClass]="{ ' status-info': item.stateId == 0 }"
+            *ngIf="item.stateId == 0"
+          >
+            تحت المراجعه
+          </span>
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-success': item.stateId == 1
+            }"
+            *ngIf="item.stateId == 1"
+          >
+            مقبول
+          </span>
+          <span
+            class="status"
+            [ngClass]="{ ' status-danger': item.stateId == 2 }"
+            *ngIf="item.stateId == 2"
+          >
+            مرفوض
+          </span>
+
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-warning': item.stateId == 4
+            }"
+            *ngIf="item.stateId == 4"
+          >
+            بإنتظار دفع الرسوم
+          </span>
+        </td>
+        <td class="content">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+            >
+              <g id="action">
+                <rect
+                  id="Rectangle"
+                  width="42"
+                  height="42"
+                  rx="2"
+                  fill="#F2F2F2"
+                />
+                <g id="ellipsis-v-regular copy 2">
+                  <path
+                    id="Shape"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 13.4C19 14.725 20.075 15.8 21.4 15.8C22.725 15.8 23.8 14.725 23.8 13.4C23.8 12.075 22.725 11 21.4 11C20.075 11 19 12.075 19 13.4ZM21.4 18.5996C22.725 18.5996 23.8 19.6746 23.8 20.9996C23.8 22.3246 22.725 23.3996 21.4 23.3996C20.075 23.3996 19 22.3246 19 20.9996C19 19.6746 20.075 18.5996 21.4 18.5996ZM21.4 30.9992C20.075 30.9992 19 29.9242 19 28.5992C19 27.2742 20.075 26.1992 21.4 26.1992C22.725 26.1992 23.8 27.2742 23.8 28.5992C23.8 29.9242 22.725 30.9992 21.4 30.9992Z"
+                    fill="black"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button
+              mat-menu-item
+              [routerLink]="['/dashboard/request-details', item.id]"
+            >
+              عرض التفاصيل
+              <img
+                class="img"
+                src="../../../../../assets/images/streamlinehq-view.svg"
+                alt="icon"
+              />
+            </button>
+            <button mat-menu-item [routerLink]="['/dashboard/add-device', 1]">
+              تعديل الطلب
+              <img
+                class="img2"
+                src="../../../../../assets/images/list-edit.svg"
+                alt="icon"
+              />
+            </button>
+          </mat-menu>
+        </td>
+      </tr>
+      <tr *ngFor="let item of devicelist">
+        <th class="head-row" scope="row">{{ item?.id }}</th>
+
+        <td class="content">{{ item?.deviceName }}</td>
+        <td class="content">{{ item?.isTrailer ? "مقطوره" : "قاطره" }}</td>
+
+        <td class="content">
+          <span *ngIf="item.isNew == true"> تسجيل جهاز جديد </span>
+          <span *ngIf="item.isNew == false"> تعديل بيانات </span>
+        </td>
+        <td class="content">{{ item?.createdDate | date : "dd-MM-YYYY" }}</td>
+        <td>
+          <span
+            class="status"
+            [ngClass]="{ ' status-info': item.stateId == 0 }"
+            *ngIf="item.stateId == 0"
+          >
+            تحت المراجعه
+          </span>
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-success': item.stateId == 1
+            }"
+            *ngIf="item.stateId == 1"
+          >
+            مقبول
+          </span>
+          <span
+            class="status"
+            [ngClass]="{ ' status-danger': item.stateId == 2 }"
+            *ngIf="item.stateId == 2"
+          >
+            مرفوض
+          </span>
+
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-warning': item.stateId == 4
+            }"
+            *ngIf="item.stateId == 4"
+          >
+            بإنتظار دفع الرسوم
+          </span>
+        </td>
+        <td class="content">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+            >
+              <g id="action">
+                <rect
+                  id="Rectangle"
+                  width="42"
+                  height="42"
+                  rx="2"
+                  fill="#F2F2F2"
+                />
+                <g id="ellipsis-v-regular copy 2">
+                  <path
+                    id="Shape"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 13.4C19 14.725 20.075 15.8 21.4 15.8C22.725 15.8 23.8 14.725 23.8 13.4C23.8 12.075 22.725 11 21.4 11C20.075 11 19 12.075 19 13.4ZM21.4 18.5996C22.725 18.5996 23.8 19.6746 23.8 20.9996C23.8 22.3246 22.725 23.3996 21.4 23.3996C20.075 23.3996 19 22.3246 19 20.9996C19 19.6746 20.075 18.5996 21.4 18.5996ZM21.4 30.9992C20.075 30.9992 19 29.9242 19 28.5992C19 27.2742 20.075 26.1992 21.4 26.1992C22.725 26.1992 23.8 27.2742 23.8 28.5992C23.8 29.9242 22.725 30.9992 21.4 30.9992Z"
+                    fill="black"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>عرض التفاصيل</button>
+            <button mat-menu-item>تعديل الطلب</button>
+          </mat-menu>
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of devicelist">
+        <th class="head-row" scope="row">{{ item?.id }}</th>
+        <td class="content">{{ item?.deviceName }}</td>
+        <td class="content">{{ item?.isTrailer ? "مقطوره" : "قاطره" }}</td>
+
+        <td class="content">
+          <span *ngIf="item.isNew == true"> تسجيل جهاز جديد </span>
+          <span *ngIf="item.isNew == false"> تعديل بيانات </span>
+        </td>
+        <td class="content">{{ item?.createdDate | date : "dd-MM-YYYY" }}</td>
+        <td>
+          <span
+            class="status"
+            [ngClass]="{ ' status-info': item.stateId == 0 }"
+            *ngIf="item.stateId == 0"
+          >
+            تحت المراجعه
+          </span>
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-success': item.stateId == 1
+            }"
+            *ngIf="item.stateId == 1"
+          >
+            مقبول
+          </span>
+          <span
+            class="status"
+            [ngClass]="{ ' status-danger': item.stateId == 2 }"
+            *ngIf="item.stateId == 2"
+          >
+            مرفوض
+          </span>
+
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-warning': item.stateId == 4
+            }"
+            *ngIf="item.stateId == 4"
+          >
+            بإنتظار دفع الرسوم
+          </span>
+        </td>
+        <td class="content">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+            >
+              <g id="action">
+                <rect
+                  id="Rectangle"
+                  width="42"
+                  height="42"
+                  rx="2"
+                  fill="#F2F2F2"
+                />
+                <g id="ellipsis-v-regular copy 2">
+                  <path
+                    id="Shape"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 13.4C19 14.725 20.075 15.8 21.4 15.8C22.725 15.8 23.8 14.725 23.8 13.4C23.8 12.075 22.725 11 21.4 11C20.075 11 19 12.075 19 13.4ZM21.4 18.5996C22.725 18.5996 23.8 19.6746 23.8 20.9996C23.8 22.3246 22.725 23.3996 21.4 23.3996C20.075 23.3996 19 22.3246 19 20.9996C19 19.6746 20.075 18.5996 21.4 18.5996ZM21.4 30.9992C20.075 30.9992 19 29.9242 19 28.5992C19 27.2742 20.075 26.1992 21.4 26.1992C22.725 26.1992 23.8 27.2742 23.8 28.5992C23.8 29.9242 22.725 30.9992 21.4 30.9992Z"
+                    fill="black"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>عرض التفاصيل</button>
+            <button mat-menu-item>تعديل الطلب</button>
+          </mat-menu>
+        </td>
+      </tr>
+
+      <tr *ngFor="let item of devicelist">
+        <th class="head-row" scope="row">{{ item?.id }}</th>
+        <td class="content">{{ item?.deviceName }}</td>
+        <td class="content">{{ item?.isTrailer ? "مقطوره" : "قاطره" }}</td>
+
+        <td class="content">
+          <span *ngIf="item.isNew == true"> تسجيل جهاز جديد </span>
+          <span *ngIf="item.isNew == false"> تعديل بيانات </span>
+        </td>
+        <td class="content">{{ item?.createdDate | date : "dd-MM-YYYY" }}</td>
+        <td>
+          <span
+            class="status"
+            [ngClass]="{ ' status-info': item.stateId == 0 }"
+            *ngIf="item.stateId == 0"
+          >
+            تحت المراجعه
+          </span>
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-success': item.stateId == 1
+            }"
+            *ngIf="item.stateId == 1"
+          >
+            مقبول
+          </span>
+          <span
+            class="status"
+            [ngClass]="{ ' status-danger': item.stateId == 2 }"
+            *ngIf="item.stateId == 2"
+          >
+            مرفوض
+          </span>
+
+          <span
+            class="status"
+            [ngClass]="{
+              ' status-warning': item.stateId == 4
+            }"
+            *ngIf="item.stateId == 4"
+          >
+            بإنتظار دفع الرسوم
+          </span>
+        </td>
+        <td class="content">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+            >
+              <g id="action">
+                <rect
+                  id="Rectangle"
+                  width="42"
+                  height="42"
+                  rx="2"
+                  fill="#F2F2F2"
+                />
+                <g id="ellipsis-v-regular copy 2">
+                  <path
+                    id="Shape"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19 13.4C19 14.725 20.075 15.8 21.4 15.8C22.725 15.8 23.8 14.725 23.8 13.4C23.8 12.075 22.725 11 21.4 11C20.075 11 19 12.075 19 13.4ZM21.4 18.5996C22.725 18.5996 23.8 19.6746 23.8 20.9996C23.8 22.3246 22.725 23.3996 21.4 23.3996C20.075 23.3996 19 22.3246 19 20.9996C19 19.6746 20.075 18.5996 21.4 18.5996ZM21.4 30.9992C20.075 30.9992 19 29.9242 19 28.5992C19 27.2742 20.075 26.1992 21.4 26.1992C22.725 26.1992 23.8 27.2742 23.8 28.5992C23.8 29.9242 22.725 30.9992 21.4 30.9992Z"
+                    fill="black"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>عرض التفاصيل</button>
+          </mat-menu>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

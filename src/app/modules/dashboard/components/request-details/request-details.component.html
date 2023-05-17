@@ -1,0 +1,222 @@
+<app-header-dashboard [pageTitle]="pageTitleValue"></app-header-dashboard>
+<div class="details-wrapper">
+  <div class="title">
+    <h2 class="header">تفاصيل الطلب</h2>
+    <button class="button btn-secondary">تصدير بيانات الجهاز</button>
+  </div>
+  <div class="details-list">
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-primary">
+          <li class="list">
+            وصف الجهاز
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.devicDescription }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            نوع المركبة
+            <ul class="list-secondary">
+              <li class="list-1">
+                {{ reqInfo.isTrailer ? "مقطوره" : "قاطره" }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            اسم الجهاز
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.deviceName }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            بلد الصنع
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.madeIn }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            اسم جهة الإختبار
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.tester.nameAr }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            نوع الإختبار
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.testRequestType.nameAr }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            الرقم التسلسلي للجهاز
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.deviceSerial }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            حالة الطلب
+            <ul class="list-secondary">
+              <li class="list-1">
+                {{ reqInfo.testRequestType.isActive ? "مقبول" : "مرفوض" }}
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            تاريخ الطلب
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.testRequestType.createdDate }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            نتيجة الإختبار
+            <ul class="list-secondary">
+              <li class="list-1">{{ reqInfo.testResult }}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <ul class="list-primary">
+          <li class="list">
+            مستوي التصنيف
+            <ul class="list-secondary">
+              <li class="list-1"></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-3"></div>
+      <div class="col-6">
+        <ul class="list-primary">
+          <li class="list">
+            نوع المقطورة المناسب
+            <ul class="list-secondary1">
+              <li class="list-11"></li>
+              <li class="list-11">نوع المقطورة</li>
+              <li class="list-11">نوع المقطورة</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <ul class="list-primary">
+          <li class="list">
+            نوع المصد الهوائي
+            <ul class="list-secondary1">
+              <li class="list-11"></li>
+              <li class="list-11">نوع المصد</li>
+              <li class="list-11">نوع المصد</li>
+              <li class="list-11">نوع المصد</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="uploader">
+  <h2 class="header">المرفقات</h2>
+  <div class="file-upload">
+    <button class="button btn-secondary">
+      <div class="content">
+        <img
+          class="img"
+          src="../../../../../assets/images/upload1.svg"
+          alt=""
+        />
+        <p class="text-btn">تقرير الاختبار {{ reqInfo.testReportUrl }}</p>
+      </div>
+    </button>
+  </div>
+</div>
+<div class="table-1">
+  <h2 class="header">قائمة بالورش المصرحة بتركيب الجهاز</h2>
+  <table class="table-wrap">
+    <thead>
+      <tr>
+        <th class="head" scope="col">اسم الورشة</th>
+        <th class="head" scope="col">المدينة</th>
+        <th class="head" scope="col">الموقع الجغرافي</th>
+        <th class="head" scope="col">الموقع الإلكتروني</th>
+        <th class="head" scope="col">البريد الإلكتروني</th>
+        <th class="head" scope="col">رقم التواصل</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="head-row" scope="row">{{ reqInfo.creator.nameAr }}</th>
+        <td class="content">{{ reqInfo.creator.city }}</td>
+        <td class="content-address">
+          {{ reqInfo.creator.locationUrl }}
+        </td>
+        <td class="content">{{ reqInfo.creator.website }}</td>
+        <td class="content">{{ reqInfo.creator.contact1_email }}</td>
+        <td class="content">{{ reqInfo.creator.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="notes">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="title"> الملاحظات (2) </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="content">
+        <div class="header">
+          <h3 class="heading">{{ reqInfo.editor }}</h3>
+          <p class="date">{{ reqInfo.createdDate }}</p>
+        </div>
+
+        <p class="paragraph">
+          {{ reqInfo.deviceNotes }}
+        </p>
+      </div>
+      <div class="content">
+        <div class="header">
+          <h3 class="heading">{{ reqInfo.editor }}</h3>
+          <p class="date">{{ reqInfo.createdDate }}</p>
+        </div>
+
+        <p class="paragraph">{{ reqInfo.deviceNotes }}</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

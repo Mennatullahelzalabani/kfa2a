@@ -82,7 +82,6 @@
       text-decoration: none;
     }
   }
-
   .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
@@ -105,10 +104,15 @@
   .upload-icon-pos {
     position: absolute;
     left: 0;
+    top: -11px;
 
     html:lang("ar") & {
       position: absolute;
       right: 0;
     }
   }
+}
+.uploaded-img {
+  max-width: 200px;
+  margin-top: 20px;
 }

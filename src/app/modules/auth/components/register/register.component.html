@@ -3,42 +3,53 @@
 <div class="boxes">
   <div class="boxes-wrapper">
     <div class="container">
-      <a
-        class="box"
-        [routerLink]="['/auth/register-form']"
-        [queryParams]="{ registerType: 'tester' }"
-      >
-        <div class="img-1">
-          <img src="../../../../../../assets/images/box-img1.svg" alt="icon" />
+      <div class="row w-100">
+        <div class="col-4">
+          <a
+            class="box"
+            [routerLink]="['/auth/register-form']"
+            [queryParams]="{ registerType: 'tester' }"
+          >
+            <div class="img-1">
+              <img
+                src="../../../../../../assets/images/box-img1.svg"
+                alt="icon"
+              />
+            </div>
+            <a class="link-1">جهة الإختبار</a>
+          </a>
         </div>
-        <a class="link-1">جهة الإختبار</a>
-      </a>
-      <a
-        class="box"
-        [routerLink]="['/auth/register-form']"
-        [queryParams]="{ registerType: 'company' }"
-      >
-        <div class="img">
-          <img
-            src="..../../../../../../../assets/images/box-img2.svg"
-            alt="icon"
-          />
+        <div class="col-4">
+          <a
+            class="box"
+            [routerLink]="['/auth/register-form']"
+            [queryParams]="{ registerType: 'company' }"
+          >
+            <div class="img">
+              <img
+                src="..../../../../../../../assets/images/box-img2.svg"
+                alt="icon"
+              />
+            </div>
+            <a class="link"> الشركة المصنعه / المستورد</a>
+          </a>
         </div>
-        <a class="link"> الشركة المصنعه / المستورد</a>
-      </a>
-      <a
-        class="box"
-        [routerLink]="['/auth/register-form']"
-        [queryParams]="{ registerType: 'workshop' }"
-      >
-        <div class="img">
-          <img
-            src="..../../../../../../../assets/images/box-img3.svg"
-            alt="icon"
-          />
+        <div class="col-4">
+          <a
+            class="box"
+            [routerLink]="['/auth/register-form']"
+            [queryParams]="{ registerType: 'workshop' }"
+          >
+            <div class="img">
+              <img
+                src="..../../../../../../../assets/images/box-img3.svg"
+                alt="icon"
+              />
+            </div>
+            <a class="link"> الورشة</a>
+          </a>
         </div>
-        <a class="link"> الورشة</a>
-      </a>
+      </div>
     </div>
   </div>
 </div>

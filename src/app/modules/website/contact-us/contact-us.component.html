@@ -23,11 +23,17 @@
             <div
               class="error-valid-msg"
               *ngIf="
-            contactForm.get('fullName')!.errors?.['required'] &&
-            contactForm.get('fullName')!.touched
-          "
+                (contactForm.get('fullName')!.errors &&
+                  (contactForm.get('fullName')?.dirty ||
+                    contactForm.get('fullName')?.touched)) ||
+                contactFormSubmitted
+              "
             >
-              برجاء ادخال قيمه
+              <span
+                *ngIf="contactForm.controls['fullName']?.errors?.['required']"
+              >
+                هذا الحقل مطلوب
+              </span>
             </div>
           </div>
         </div>
@@ -45,11 +51,15 @@
             <div
               class="error-valid-msg"
               *ngIf="
-            contactForm.get('email')!.errors?.['required'] &&
-            contactForm.get('email')!.touched
-          "
+                (contactForm.get('email')!.errors &&
+                  (contactForm.get('email')?.dirty ||
+                    contactForm.get('email')?.touched)) ||
+                contactFormSubmitted
+              "
             >
-              برجاء ادخال قيمه
+              <span *ngIf="contactForm.controls['email']?.errors?.['required']">
+                هذا الحقل مطلوب
+              </span>
             </div>
           </div>
         </div>
@@ -69,11 +79,15 @@
             <div
               class="error-valid-msg"
               *ngIf="
-            contactForm.get('phone')!.errors?.['required'] &&
-            contactForm.get('phone')!.touched
-          "
+                (contactForm.get('phone')!.errors &&
+                  (contactForm.get('phone')?.dirty ||
+                    contactForm.get('phone')?.touched)) ||
+                contactFormSubmitted
+              "
             >
-              برجاء ادخال قيمه
+              <span *ngIf="contactForm.controls['phone']?.errors?.['required']">
+                هذا الحقل مطلوب
+              </span>
             </div>
           </div>
         </div>
@@ -82,19 +96,28 @@
             <label for="sel1" class="form-lable">نوع التواصل</label>
             <select class="form-select" formControlName="type">
               <option>اختر نوع التواصل</option>
-              <option [ngValue]="1">One</option>
-              <option [ngValue]="2">Two</option>
+              <option [ngValue]="null">One</option>
+              <option
+                [ngValue]="country.id"
+                *ngFor="let country of allCountries"
+              >
+                > {{ country.nameAr }}
+              </option>
               <option [ngValue]="3">Three</option>
             </select>
           </div>
           <div
             class="error-valid-msg"
             *ngIf="
-          contactForm.get('type')!.errors?.['required'] &&
-          contactForm.get('type')!.touched
-        "
+              (contactForm.get('type')!.errors &&
+                (contactForm.get('type')?.dirty ||
+                  contactForm.get('type')?.touched)) ||
+              contactFormSubmitted
+            "
           >
-            برجاء ادخال قيمه
+            <span *ngIf="contactForm.controls['phone']?.errors?.['required']">
+              هذا الحقل مطلوب
+            </span>
           </div>
         </div>
 
@@ -113,17 +136,21 @@
             <div
               class="error-valid-msg"
               *ngIf="
-          contactForm.get('body')!.errors?.['required'] &&
-          contactForm.get('body')!.touched
-        "
+                contactForm.get('body')?.dirty ||
+                contactForm.get('body')?.touched ||
+                contactFormSubmitted
+              "
             >
-              برجاء ادخال قيمه
+              <span *ngIf="contactForm.controls['body']?.errors?.['required']">
+                هذا الحقل مطلوب
+              </span>
             </div>
           </div>
         </div>
       </div>
     </form>
-    <button type="submit" class="btn btn-primary" (click)="sendData()">
+
+    <button type="submit" class="button btn-primary" (click)="sendData()">
       إرسال
     </button>
   </div>
