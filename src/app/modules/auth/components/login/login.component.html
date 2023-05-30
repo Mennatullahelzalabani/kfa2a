@@ -1,10 +1,14 @@
-<app-auth-header [pageTitle]="pageTitleValue"></app-auth-header>
-
+<div class="login">
+  <div class="login-text">
+    <h1 class="title">تسجيل الدخول</h1>
+    <p class="text">أهلا بك ، قم بتسجيل الدخول الآن لحسابك على منصتنا</p>
+  </div>
+</div>
 <div class="login-wrapper">
   <div class="container">
     <form class="forum" [formGroup]="LoginForm">
       <div class="row">
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="form-group">
             <label for="email" class="form-lable"
               >البريد الإلكتروني
@@ -20,7 +24,7 @@
             />
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <div class="form-group">
             <label for="password" class="form-lable"
               >كلمة المرور
@@ -54,4 +58,3 @@
     </form>
   </div>
 </div>
-<app-footer></app-footer>

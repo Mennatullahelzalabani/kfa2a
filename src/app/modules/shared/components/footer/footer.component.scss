@@ -1,62 +1,75 @@
-.container {
-  width: 100%;
-}
-footer {
-  .footer-items {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 96px;
-    border-top: 2px solid #d8d8d8;
-    padding-top: 25px;
-    padding-bottom: 25px;
-
-    &:first-of-type {
-      margin-right: 0;
-    }
-
-    .footer-text:first-of-type {
-      margin: 0;
-      padding: 0;
-    }
-    .text {
-      margin-top: 10px;
-      font-family: "original";
-      font-weight: bold;
-      display: inline-block;
-      text-decoration: none;
-      margin-right: 30px;
-      color: #000000;
-      font-size: 12px;
-    }
-    .nav-link {
-      text-decoration: none;
+:host {
+  .container {
+    width: 100%;
+  }
+  footer {
+    @media (max-width: 768px) {
       display: block;
     }
-
-    .icons {
-      display: flex;
-      flex-direction: row;
+    .footer-items {
+      margin: 0;
+      padding: 0;
       list-style: none;
-      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 96px;
+      border-top: 2px solid #d8d8d8;
+      padding-top: 25px;
+      padding-bottom: 25px;
 
-      .icon {
-        display: inline-block;
-        margin-right: 5px;
+      &:first-of-type {
+        margin-right: 0;
       }
-      .icon-link {
-        margin-left: 10px;
+
+      .footer-text:first-of-type {
+        margin: 0;
+        padding: 0;
+      }
+      .text {
+        margin-top: 0;
+        font-family: "original";
+        font-weight: bold;
+        display: inline-block;
+        text-decoration: none;
+        margin-right: 30px;
+        color: #000000;
+        font-size: 12px;
+        @media (max-width: 768px) {
+          margin-bottom: 20px;
+          &:first-of-type {
+            margin: 0;
+          }
+        }
+      }
+      .nav-link {
+        text-decoration: none;
+        display: block;
+      }
+
+      .icons {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        align-items: center;
+
+        .icon {
+          display: inline-block;
+          margin-right: 5px;
+        }
+        .icon-link {
+          margin-left: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        display: block;
       }
     }
-  }
-  .copy-right {
-    color: #000000;
-    font-family: "original";
-    font-size: 12px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-right: 30px;
+    .copy-right {
+      color: #000000;
+      font-family: "original";
+      font-size: 12px;
+      font-weight: 500;
+      padding-right: 30px;
+    }
   }
 }

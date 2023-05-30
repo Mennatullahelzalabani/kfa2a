@@ -1,4 +1,17 @@
-<app-auth-header [pageTitle]="pageTitleValue"></app-auth-header>
+<div class="register-wrap">
+  <div class="register">
+    <div class="logo">
+      <img src="../../../../assets/images/saso-logo(2) 2.png" alt="" />
+    </div>
+    <div class="register-text">
+      <h1 class="title">إنشاء حساب الشركة المصنعة</h1>
+      <p class="text">
+        أهلًا بك، قم بإنشاء حساب الشركة المصنعة بتعبئة الحقول المطلوبة بالخطوات
+        التالية.
+      </p>
+    </div>
+  </div>
+</div>
 
 <mat-stepper #stepper>
   <mat-step [stepControl]="firstForm">
@@ -7,7 +20,7 @@
         <form class="form" [formGroup]="firstForm">
           <h2 class="heading">المعلومات الأساسية للشركة المصنعة</h2>
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group check-box">
                 <label for="name" class="form-lable"
                   >مصنع سعودي <span class="required">*</span>
@@ -24,7 +37,7 @@
                 />
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group check-box">
                 <label for="name" class="form-lable">
                   مصنع غير سعودي <span class="required">*</span>
@@ -39,7 +52,7 @@
                 />
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="name" class="form-lable"
                   >اسم الشركة المصنعة ( بالإنجليزية )
@@ -71,7 +84,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable">
                   اسم الشركة المصنعة ( بالعربية )
@@ -103,7 +116,7 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="phone" class="form-lable"
                   >رقم للتواصل <span class="required">*</span></label
@@ -134,7 +147,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="phone" class="form-lable">رقم الفاكس</label>
 
@@ -161,7 +174,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="email" class="form-lable">
                   الصندوق البريدي <span class="required">*</span></label
@@ -191,7 +204,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable">
                   الرمز البريدي <span class="required"> *</span></label
@@ -222,7 +235,7 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="sel1" class="form-lable">
                   البلد <span class="required">*</span></label
@@ -254,7 +267,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable"
                   >المدينة <span class="required">*</span></label
@@ -284,7 +297,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable"
                   >العنوان <span class="required">*</span></label
@@ -312,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable">
                   رقم السجل التجاري <span class="required">*</span></label
@@ -342,7 +355,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group date">
                 <label for="date" class="date-label col-form-label"
                   >تاريخ إنتهاء السجل التجاري
@@ -385,7 +398,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="website" class="form-lable">
                   الموقع الإلكتروني</label
@@ -481,7 +494,7 @@
         <form class="form" [formGroup]="thirdForm">
           <h2 class="heading">معلومات ممثل الشركة المصنعة</h2>
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable">
                   اسم ممثل الجهة
@@ -513,7 +526,7 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="phone" class="form-lable"
                   >رقم للتواصل <span class="required">*</span></label
@@ -545,7 +558,7 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="email" class="form-lable">
                   البريد الإلكتروني <span class="required">*</span></label
@@ -575,7 +588,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="text" class="form-lable">
                   المسمى الوظيفي
@@ -608,7 +621,7 @@
             </div>
 
             <h2 class="heading">معلومات الحساب</h2>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="email" class="form-lable">
                   البريد الإلكتروني الرسمي للجهة
@@ -639,9 +652,9 @@
                 </div>
               </div>
             </div>
-            <div class="col-6"></div>
+            <div class="col-md-6"></div>
 
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="password" class="form-lable"
                   >كلمة المرور
@@ -671,7 +684,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="password" class="form-lable">
                   تأكيد كلمة المرور
@@ -700,4 +713,3 @@
     </div>
   </mat-step>
 </mat-stepper>
-<app-footer></app-footer>

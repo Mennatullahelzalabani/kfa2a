@@ -2,10 +2,30 @@
 
 .home-wrapper {
   width: 100%;
+  .navbarr {
+    margin-top: 10px;
+    background-color: #0096b6;
+    display: flex;
+    flex-direction: column;
+
+    .nav-item {
+      margin-top: 0;
+      .nav-link {
+        padding: 10px 0;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+      }
+    }
+  }
   .navbar {
     .nav-link {
       color: #545454 !important;
       font-weight: 600;
+      @media (max-width: 768px) {
+        color: #fff !important;
+        padding: 0;
+      }
     }
   }
 
@@ -21,6 +41,15 @@
     .container {
       display: flex;
       justify-content: space-between;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+      .section {
+        @media (max-width: 768px) {
+          text-align: center;
+        }
+      }
     }
 
     .text {
@@ -30,6 +59,7 @@
     }
     .icon-1 {
       margin-top: 80px;
+      margin-right: 15px;
     }
   }
 
@@ -38,16 +68,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      display: block;
+    }
     .box {
       background-color: #f5f5f5;
-      width: 374px;
-      height: 181px;
+      flex: 1;
+      width: 100%;
       text-align: center;
+      margin-left: 15px;
 
       .text {
         font-family: "original";
         font-size: 24px;
         font-weight: 800;
+
         padding-top: 30px;
         padding-bottom: 40px;
       }
@@ -68,4 +103,83 @@
       }
     }
   }
+  .settings-menu {
+    .button {
+      margin-right: 20px;
+      background: #0091b4;
+      padding: 8px 12px;
+      border: 0;
+      border-radius: 5px;
+      box-shadow: none;
+      .icon {
+        background-image: url("../../../../assets/images/menu.png");
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+      }
+    }
+  }
+}
+
+.settings-menu {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 20px;
+  }
+}
+
+.right {
+  @media (max-width: 768px) {
+    background-color: #0096b6;
+    color: #fff;
+    padding: 20px;
+    .nav-item {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+    li {
+      display: block !important;
+    }
+  }
+}
+
+.left {
+  @media (max-width: 768px) {
+    background-color: #0096b6;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.navbar {
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+.nav-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  @media (max-width: 768px) {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    top: -30px;
+    height: 0;
+  }
+}
+.view-nav {
+  opacity: 1;
+  visibility: visible;
+  top: 5px;
 }
