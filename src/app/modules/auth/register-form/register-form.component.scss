@@ -1,6 +1,13 @@
 .register-wrap {
   background: linear-gradient(91.93deg, #4b9b2e -99.15%, #0091b4 106.9%);
   height: 400px;
+  .logo {
+    @media (max-width: 768px) {
+      img {
+        width: 150px;
+      }
+    }
+  }
 
   .register {
     padding-top: 60px;
@@ -16,7 +23,6 @@
       text-align: center;
       @media (max-width: 768px) {
         padding: 10px 0;
-        text-align: right;
       }
 
       .title {
@@ -24,12 +30,19 @@
         font-size: 42px;
         font-weight: 600;
         font-family: "original";
+        @media (max-width: 768px) {
+          padding-top: 30px;
+          font-size: 22px;
+        }
       }
       .text {
         font-weight: 500;
         font-family: "original";
         color: #ffffff;
         font-size: 20px;
+        @media (max-width: 768px) {
+          font-size: 18px;
+        }
       }
     }
   }
@@ -44,11 +57,14 @@
   border-radius: 8px;
   box-shadow: 0px 14px 24px rgba(108, 108, 108, 0.1);
   @media (max-width: 768px) {
-    margin: 30px 40px;
+    margin: 0;
   }
 
   .form {
     margin: 70px 80px;
+    @media (max-width: 768px) {
+      margin: 70px 0;
+    }
   }
 }
 
@@ -58,13 +74,12 @@
   font-weight: 800;
   padding-top: 48px;
   padding-bottom: 46px;
+  @media (max-width: 768px) {
+    font-size: 22px;
+    text-align: center;
+  }
 }
-.heading1 {
-  font-family: "original";
-  padding-bottom: 12px;
-  font-size: 16px;
-  font-weight: 600;
-}
+
 .date-label1 {
   padding-right: 15px;
 }
@@ -78,13 +93,18 @@
   margin-bottom: 70px;
   margin-right: 16px;
   border-radius: 4px;
+  @media (max-width: 768px) {
+    margin-top: 15px;
+  }
 }
 .next {
   margin-right: 80px;
 }
 .check-box {
   border: 1px solid #eaeaea;
-
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
   .form-lable {
     padding-top: 17px;
     padding-right: 17px;
@@ -101,6 +121,10 @@
 
 .buttons {
   margin-top: 50px;
+  @media (max-width: 768px) {
+    margin: auto;
+    display: block;
+  }
 }
 .btn-secondary {
   font-size: 14px;
@@ -111,9 +135,21 @@
   margin-bottom: 70px;
   margin-right: 80px;
   border-radius: 4px;
+  @media (max-width: 768px) {
+    margin: 0 50px 0 0;
+  }
 }
 .form-upload {
   margin: 70px 80px;
+  @media (max-width: 768px) {
+    margin: 0;
+  }
+  .heading1 {
+    font-family: "original";
+    padding-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+  }
   .details {
     display: flex;
     margin-bottom: 28px;
@@ -139,6 +175,9 @@
     top: 0;
     opacity: 0;
     height: auto;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 
   .upload-icon-pos {

@@ -1,4 +1,4 @@
-import { ServiceDashboardService } from './../../service-dashboard.service';
+import { ServiceDashboardService } from '../../service-dashboard.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';

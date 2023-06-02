@@ -3,12 +3,14 @@
 
   .flex-container {
     display: flex;
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
   .form-group {
     margin-left: 30px;
     @media (max-width: 768px) {
-      padding-inline-start: 30px;
-      padding-inline-end: 30px;
+      text-align: center;
     }
   }
   .img {

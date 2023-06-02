@@ -7,4 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() pageTitle: any;
+  viewMenuSettings = false;
+  openMenu() {
+    this.viewMenuSettings = !this.viewMenuSettings;
+  }
 }

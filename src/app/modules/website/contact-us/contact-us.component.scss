@@ -5,6 +5,9 @@
   color: #000000;
   margin-bottom: 40px;
   margin-top: 70px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 .btn-primary {
@@ -13,4 +16,9 @@
   width: 100px;
   height: 50px;
   margin-top: 50px;
+  @media (max-width: 768px) {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+  }
 }

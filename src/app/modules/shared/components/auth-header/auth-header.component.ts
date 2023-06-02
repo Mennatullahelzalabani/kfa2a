@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class AuthHeaderComponent {
   @Input() pageTitle: any;
+  viewMenu = false;
+
+  openMenu() {
+    this.viewMenu = !this.viewMenu;
+  }
 }

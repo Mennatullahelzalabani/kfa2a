@@ -1,5 +1,8 @@
 .table-1 {
   margin-top: 16px;
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
 }
 .title {
   display: flex;
@@ -13,22 +16,33 @@
     padding-top: 42px;
     padding-bottom: 40px;
     padding-right: 42px;
+    @media (max-width: 768px) {
+      font-size: 22px;
+      padding-right: 12px;
+    }
   }
   .show {
     display: flex;
     margin-top: 50px;
     margin-left: 40px;
+    @media (max-width: 768px) {
+      margin-top: 40px;
+      margin-left: 0;
+    }
     .img {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       margin-top: 5px;
-      margin-right: 5px;
+      margin-right: 20px;
     }
     .show-text {
       color: #2c6e59;
       font-size: 16px;
       font-weight: 600;
       font-family: "original";
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -44,7 +58,7 @@
   font-family: "original";
   text-align: center;
   padding-top: 8px;
-
+  margin-bottom: 10px;
   margin-top: 20px;
 }
 .audited {
@@ -78,7 +92,35 @@
   background-color: #ffffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
-  padding-bottom: 20px;
+
+  .show {
+    .img {
+      width: 30px;
+      height: 30px;
+      padding-right: 0;
+    }
+    @media (max-width: 768px) {
+      margin-top: 30px;
+      margin-left: 0;
+    }
+    &:last-of-type {
+      @media (max-width: 768px) {
+        margin-left: 10px;
+      }
+    }
+  }
+  .show-text {
+    @media (max-width: 768px) {
+      text-align: left;
+
+      font-size: 14px;
+    }
+  }
+}
+.wrapper {
+  @media (max-width: 768px) {
+    overflow: auto;
+  }
 }
 .table-wrap {
   width: 100%;
@@ -100,20 +142,39 @@ tr:last-of-type {
   font-family: "original";
   font-size: 16px;
   background-color: #f0f9f6;
+  @media (max-width: 768px) {
+    white-space: nowrap;
+    padding-left: 15px;
+  }
 }
 .head:first-of-type {
   padding-right: 40px;
 }
+
 .head-row {
   color: #2c6e59;
   font-weight: 700;
   font-size: 22px;
   font-family: "original";
   padding-right: 50px;
+  border-bottom: 1px solid #000000;
+  @media (max-width: 768px) {
+    border-bottom: 1px solid #000000;
+  }
 }
 .content {
   color: #787a7d;
   font-size: 16px;
   font-weight: 600;
   font-family: "original";
+  border-bottom: 1px solid #000000;
+  @media (max-width: 768px) {
+    white-space: nowrap;
+
+    text-align: center !important;
+    border-bottom: 1px solid #000000;
+  }
+}
+td {
+  border-bottom: 1px solid #000000;
 }

@@ -27,7 +27,7 @@
         </ul>
         <button
           class="button btn-secondary"
-          [routerLink]="['/dashboard/add-device']"
+          [routerLink]="['/dashboard/requests/add-device']"
         >
           تسجيل جهاز جديد
         </button>
@@ -235,7 +235,7 @@
           <mat-menu #menu="matMenu">
             <button
               mat-menu-item
-              [routerLink]="['/dashboard/request-details', item.id]"
+              [routerLink]="['/dashboard/requests/request-details', item.id]"
             >
               عرض التفاصيل
               <img
@@ -244,7 +244,10 @@
                 alt="icon"
               />
             </button>
-            <button mat-menu-item [routerLink]="['/dashboard/add-device', 1]">
+            <button
+              mat-menu-item
+              [routerLink]="['/dashboard/requests/add-device', 1]"
+            >
               تعديل الطلب
               <img
                 class="img2"

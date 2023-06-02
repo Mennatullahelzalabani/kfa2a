@@ -1,13 +1,13 @@
 import { HomeDashboardComponent } from './components/home-dashboard/home-dashboard.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { RequestDetailsComponent } from './components/request-details/request-details.component';
+import { ProfileComponent } from './profile/profile/profile.component';
+import { RequestDetailsComponent } from './requests/request-details/request-details.component';
 
 import { IndexComponent } from './index/index.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RequestsComponent } from './components/requests/requests.component';
-import { AddDeviceComponent } from './components/add-device/add-device.component';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { RequestsComponent } from './requests/requests/requests.component';
+import { AddDeviceComponent } from './requests/add-device/add-device.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   {
@@ -24,28 +24,17 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        component: ProfileComponent,
+        loadChildren: () =>
+          import('../dashboard/profile/profile.module').then(
+            (m) => m.ProfileModule
+          ),
       },
       {
         path: 'requests',
-        component: RequestsComponent,
-      },
-
-      {
-        path: 'request-details/:id',
-        component: RequestDetailsComponent,
-      },
-      {
-        path: 'add-device',
-        component: AddDeviceComponent,
-      },
-      {
-        path: 'add-device/:id',
-        component: AddDeviceComponent,
-      },
-      {
-        path: 'edit-profile',
-        component: EditProfileComponent,
+        loadChildren: () =>
+          import('../dashboard/requests/requests.module').then(
+            (m) => m.RequestsModule
+          ),
       },
     ],
   },

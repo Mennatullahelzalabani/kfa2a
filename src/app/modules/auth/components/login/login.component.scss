@@ -10,12 +10,18 @@
       font-size: 42px;
       font-weight: 600;
       font-family: "original";
+      @media (max-width: 768px) {
+        font-size: 22px;
+      }
     }
     .text {
       font-weight: 500;
       font-family: "original";
       color: #ffffff;
       font-size: 20px;
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
     }
   }
 }
@@ -30,11 +36,13 @@
   display: flex;
   justify-content: center;
   @media (max-width: 768px) {
-    margin-right: 50px;
-    margin-left: 50px;
+    margin: -100px 0;
   }
   .forum {
     margin: 70px 80px;
+    @media (max-width: 768px) {
+      margin: 70px 0;
+    }
   }
   .login-components {
     display: flex;
@@ -52,6 +60,11 @@
     .button {
       margin-top: 50px;
       padding: 15px 20px;
+      @media (max-width: 768px) {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+      }
     }
   }
 }

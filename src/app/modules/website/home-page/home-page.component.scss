@@ -2,22 +2,7 @@
 
 .home-wrapper {
   width: 100%;
-  .navbarr {
-    margin-top: 10px;
-    background-color: #0096b6;
-    display: flex;
-    flex-direction: column;
 
-    .nav-item {
-      margin-top: 0;
-      .nav-link {
-        padding: 10px 0;
-        font-size: 12px;
-        font-weight: 600;
-        text-align: center;
-      }
-    }
-  }
   .navbar {
     .nav-link {
       color: #545454 !important;
@@ -139,7 +124,7 @@
   @media (max-width: 768px) {
     background-color: #0096b6;
     color: #fff;
-    padding: 20px;
+    padding: 30px;
     .nav-item {
       margin-bottom: 20px;
       margin-right: 0;
@@ -153,7 +138,7 @@
 .left {
   @media (max-width: 768px) {
     background-color: #0096b6;
-    padding-top: 20px;
+
     padding-bottom: 30px;
     flex-direction: column;
     gap: 20px;

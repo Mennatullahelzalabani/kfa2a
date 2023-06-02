@@ -14,6 +14,10 @@
       padding: 25px;
       align-items: center;
       height: 185px;
+      @media (max-width: 768px) {
+        margin-bottom: 120px;
+      }
+
       .content {
         font-family: "original";
         .number {

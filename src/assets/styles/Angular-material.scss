@@ -47,6 +47,10 @@ mat-stepper {
     font-size: 20px;
     font-family: "original";
     font-weight: 600;
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
   }
   .mat-step-icon-selected {
     background-color: #ffffff;
@@ -57,6 +61,10 @@ mat-stepper {
     border-color: #8ea376;
     border-block-start-width: 2px;
     width: 80%;
+    @media (max-width: 768px) {
+      max-width: 50px;
+      margin-top: 50px;
+    }
   }
   .col-form-label {
     font-family: "original";
@@ -76,6 +84,12 @@ mat-stepper {
 }
 .mdc-line-ripple {
   display: none;
+}
+.mat-step-header {
+  @media (max-width: 768px) {
+    width: 50px;
+    margin-top: 50px;
+  }
 }
 
 .mat-step-header .mat-step-icon-state-edit {
@@ -215,4 +229,33 @@ button:not(:disabled) {
 
 .mat-mdc-checkbox.mat-accent {
   --mdc-checkbox-selected-checkmark-color: #ffffff;
+}
+
+.mat-mdc-tab-body-content {
+  @media (max-width: 768px) {
+    overflow-x: scroll !important;
+    width: 100%;
+  }
+}
+.mat-mdc-tab-group {
+  @media (max-width: 768px) {
+    display: block;
+    width: 100% !important;
+  }
+}
+.mat-mdc-tab-header-pagination-controls-enabled .mat-mdc-tab-header-pagination {
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+}
+.mat-mdc-tab-header {
+  @media (max-width: 768px) {
+    display: block !important;
+    width: 100%;
+  }
+}
+.mat-mdc-tab-labels {
+  @media (max-width: 768px) {
+    display: block !important;
+  }
 }

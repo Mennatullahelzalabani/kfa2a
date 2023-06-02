@@ -4,7 +4,7 @@
     <h2 class="text">المعلومات الأساسية للشركة المصنعة</h2>
     <button
       class="button btn-primary"
-      [routerLink]="['/dashboard/edit-profile']"
+      [routerLink]="['/dashboard/profile/edit-profile']"
     >
       تعديل الملف الشخصي
     </button>
@@ -12,13 +12,13 @@
 
   <ul class="list">
     <div class="row">
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         مرجع المصنع
         <ul class="listsecodary">
           <li class="secondary">مصنع سعودي</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         اسم الشركة المصنعة ( بالإنجليزية )
         <ul class="listsecodary">
           <li class="secondary">
@@ -26,62 +26,62 @@
           </li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         اسم الشركة المصنعة ( بالعربية )
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.nameAr }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         رقم للتواصل
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.phone }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         رقم الفاكس
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.fax }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         الصندوق البريدي
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.poBox }}</li>
         </ul>
       </li>
 
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         الرمز البريدي
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.postcode }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         البلد
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.country.nameAr }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         المدينة
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.city }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         العنوان
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.address }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         رقم السجل التجاري
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.commercialRegisterstring }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         تاريخ إنتهاء السجل التجاري
         <ul class="listsecodary">
           <li class="secondary">
@@ -89,7 +89,7 @@
           </li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         الموقع الإلكتروني
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.website }}</li>
@@ -131,25 +131,25 @@
 
   <ul class="list">
     <div class="row">
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         اسم ممثل الشركة المصنعة
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.contact1_name }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         رقم للتواصل
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.contact1_phone }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         البريد الإلكتروني
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.appUser.email }}</li>
         </ul>
       </li>
-      <li class="primary col-3">
+      <li class="primary col-12 col-md-3">
         المسمى الوظيفي
         <ul class="listsecodary">
           <li class="secondary">{{ userInfo?.contact1_position }}</li>
