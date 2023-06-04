@@ -272,5 +272,6 @@ button:not(:disabled) {
 .mat-mdc-form-field-infix {
   @media (max-width: 768px) {
     width: 100%;
+    padding-top: 15px !important;
   }
 }
