@@ -94,7 +94,7 @@
   margin-right: 16px;
   border-radius: 4px;
   @media (max-width: 768px) {
-    margin-top: 15px;
+    margin-top: 0;
   }
 }
 .next {
@@ -122,8 +122,8 @@
 .buttons {
   margin-top: 50px;
   @media (max-width: 768px) {
-    margin: auto;
-    display: block;
+    // margin: auto !important;
+    display: flex !important;
   }
 }
 .btn-secondary {
@@ -136,7 +136,7 @@
   margin-right: 80px;
   border-radius: 4px;
   @media (max-width: 768px) {
-    margin: 0 50px 0 0;
+    margin: 0 16px 0 0;
   }
 }
 .form-upload {

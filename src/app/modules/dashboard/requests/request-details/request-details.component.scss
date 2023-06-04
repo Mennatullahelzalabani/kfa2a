@@ -7,10 +7,18 @@
   margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0px, 2px rgba(0, 0, 0, 0.08);
+  @media (max-width: 768px) {
+    margin: -80px 10px 20px 10px;
+  }
   .title {
     padding: 0 42px;
     display: flex;
     justify-content: space-between;
+    .header {
+      @media (max-width: 768px) {
+        font-size: 22px;
+      }
+    }
 
     .btn-secondary {
       width: 161px;
@@ -19,6 +27,12 @@
       font-size: 14px;
       font-weight: 600;
       border-radius: 4px;
+      @media (max-width: 768px) {
+        width: 120px;
+        height: 50px;
+        padding: 5px;
+        font-size: 12px;
+      }
     }
   }
   .details-list {
@@ -32,6 +46,9 @@
         font-weight: 600;
         font-family: "original";
         padding-top: 48px;
+        @media (max-width: 768px) {
+          padding-top: 32px;
+        }
       }
       .list-1 {
         list-style-type: none;
@@ -40,11 +57,18 @@
         font-weight: 600;
         font-family: "original";
         padding-top: 10px;
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
       }
       .list-secondary1 {
         display: flex;
         justify-content: space-around;
         margin-left: 18px;
+        @media (max-width: 768px) {
+          padding-top: 5px;
+          display: block;
+        }
 
         .list-11 {
           color: #979797;
@@ -55,6 +79,10 @@
           padding-left: 10px;
           list-style-type: disc;
           padding-bottom: 44px;
+          @media (max-width: 768px) {
+            font-size: 14px;
+            padding-top: 12px;
+          }
         }
       }
     }
@@ -76,6 +104,10 @@
   padding-right: 42px;
   border-radius: 8px;
   padding-bottom: 66px;
+  @media (max-width: 768px) {
+    margin: 0 10px;
+    padding-right: 10px;
+  }
 
   .file-upload {
     background-color: #f2f2f2;
@@ -83,13 +115,28 @@
     border-radius: 8px;
     margin-left: 42px;
     margin-top: 30px;
+    @media (max-width: 768px) {
+      margin-left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     .btn-secondary {
       border-radius: 4px;
+      @media (max-width: 768px) {
+        width: 200px;
+      }
     }
     .content {
       display: flex;
       justify-content: center;
+      border-bottom: none !important;
+      @media (max-width: 768px) {
+        display: block;
+        align-items: center;
+        white-space: normal;
+      }
 
       .text-btn {
         font-size: 14px;
@@ -97,6 +144,10 @@
         font-family: "original";
         padding-top: 15px;
         padding-right: 10px;
+        @media (max-width: 768px) {
+          padding-top: 20px;
+          padding-right: 0;
+        }
       }
     }
   }
@@ -106,8 +157,15 @@
   margin-right: 20px;
   margin-left: 20px;
   border-radius: 8px;
+  margin-top: 20px;
+  @media (max-width: 768px) {
+    margin: 20px 10px 0 10px;
+  }
 
-  .table-wrap {
+  .t-wrap {
+    @media (max-width: 768px) {
+      overflow-x: scroll;
+    }
     .head-row {
       color: #2c6e59;
       font-weight: 700;
@@ -115,11 +173,17 @@
       font-family: "original";
       padding-right: 40px;
       height: 100%;
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
     }
   }
   .header {
     padding-right: 42px;
     padding-bottom: 42px;
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
   }
   .content-address {
     width: 300px;
@@ -141,6 +205,10 @@
   margin-left: 20px;
   padding-right: 42px;
   border-radius: 8px;
+  @media (max-width: 768px) {
+    margin: 0 10px;
+    padding: 0;
+  }
 
   .content {
     background-color: #f2f2f2;
@@ -148,6 +216,11 @@
     margin-top: 42px;
     margin-left: 42px;
     margin-bottom: 16px;
+    border-bottom: none !important;
+    @media (max-width: 768px) {
+      margin: 5px 10px;
+      padding: 0;
+    }
     .paragraph {
       padding-bottom: 16px;
       padding-right: 24px;
@@ -157,12 +230,19 @@
       padding: 20px;
       display: flex;
       justify-content: space-between;
+      @media (max-width: 768px) {
+        display: block;
+        padding: 0;
+      }
       .heading {
         padding-top: 28px;
         color: #2c6e59;
         font-size: 20px;
         font-weight: 700;
         font-family: "original";
+        @media (max-width: 768px) {
+          font-size: 18px;
+        }
       }
       .date {
         font-size: 16px;

@@ -13,10 +13,6 @@ import * as moment from 'moment';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit {
-  pageTitleValue = {
-    title: 'لوحة التحكم ',
-    text: 'الملف الشخصي',
-  };
   baseUrl: any;
   href: any;
   assetsUrl = enviroment.assetsUrl;
@@ -56,6 +52,7 @@ export class EditProfileComponent implements OnInit {
       this.checkType = res.registerType;
     });
   }
+
   ngOnInit() {
     this.href = window.location.href.toString();
     let domain = new URL(this.href);
@@ -105,21 +102,15 @@ export class EditProfileComponent implements OnInit {
       email: this.firstForm.get('email')?.value,
       password: this.firstForm.get('password')?.value,
     };
-    // this.dashboardService.register(data).subscribe(
-    //   (res: any) => {
-    //     this.toastr.success('تم التسجيل بنجاح');
-    //     this.router.navigate(['/auth/login']);
-    //   },
-    //   (err) => {
-    //     this.toastr.error(err?.error?.messageAr);
-    //   }
-    // );
   }
   fileUrl: any = '';
   allCountries: any;
   files: any;
   currentInput: any;
-
+  pageTitleValue = {
+    title: 'لوحة التحكم',
+    text: 'الملف الشخصي ',
+  };
   selectAuthorityLetterUrl($event: any) {
     this.files = $event.target.files[0];
     this.currentInput = $event.target.files[0].name;

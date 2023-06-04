@@ -259,3 +259,13 @@ button:not(:disabled) {
     display: block !important;
   }
 }
+.mat-expansion-panel-content {
+  @media (max-width: 768px) {
+    display: block !important;
+    .mat-expansion-panel-body {
+      @media (max-width: 768px) {
+        padding: 0 12px;
+      }
+    }
+  }
+}

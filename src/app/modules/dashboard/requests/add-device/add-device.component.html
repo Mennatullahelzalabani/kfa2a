@@ -4,7 +4,7 @@
   <form class="form" [formGroup]="deviceForm">
     <h2 class="heading">معلومات الجهاز</h2>
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group check-box">
           <label for="isTrailer" class="form-lable">
             قاطرة <span class="required">*</span>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group check-box">
           <label for="isTrailer" class="form-lable">
             مقطورة <span class="required">*</span>
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="text" class="form-lable">
             اسم الجهاز <span class="required">*</span></label
@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="name" class="form-lable">
             بلد صنع الجهاز
@@ -157,7 +157,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="sel1" class="form-lable">
             اسم جهة الإختبار <span class="required">*</span></label
@@ -183,7 +183,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="sel1" class="form-lable">
             نوع الإختبار <span class="required">*</span></label
@@ -211,7 +211,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="name" class="form-lable"
             >الرقم التسلسلي للجهاز
@@ -243,7 +243,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6"></div>
+      <div class="col-md-6"></div>
 
       <div class="col-12">
         <div class="form-group">
@@ -252,7 +252,7 @@
           >
 
           <div class="flex">
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               <div class="form-group check-box1">
                 <section class="example-section">
                   <mat-checkbox
@@ -264,7 +264,7 @@
                 </section>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               <div class="form-group check-box1">
                 <section class="example-section">
                   <mat-checkbox
@@ -277,7 +277,7 @@
               </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               <div class="form-group check-box1">
                 <section class="example-section">
                   <mat-checkbox
@@ -289,7 +289,7 @@
                 </section>
               </div>
             </div>
-            <div class="col-3">
+            <div class="col-12 col-md-3">
               <div class="form-group check-box1">
                 <section class="example-section">
                   <mat-checkbox
@@ -380,7 +380,7 @@
         </div>
       </div>
 
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="text" class="form-lable">
             اخرى <span class="required">*</span></label
@@ -410,7 +410,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6" *ngIf="!isTrailerVal">
+      <div class="col-12 col-md-6" *ngIf="!isTrailerVal">
         <div class="form-group">
           <label for="text" class="form-lable">
             نوع القاطرة المناسب <span class="required">*</span></label
@@ -440,9 +440,9 @@
           </div>
         </div>
       </div>
-      <div class="col-6" *ngIf="isTrailerVal"></div>
+      <div class="col-12 col-md-6" *ngIf="isTrailerVal"></div>
 
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="text" class="form-lable">
             نتيجة الإختبار <span class="required">*</span></label
@@ -472,7 +472,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group">
           <label for="text" class="form-lable">
             تقرير الاختبار <span class="required">*</span></label
@@ -526,7 +526,7 @@
         </span>
       </div>
 
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <div class="form-group level">
           <label for="text" class="form-lable"> مستوى التصنيف</label>
           <input
@@ -575,4 +575,3 @@
     </div>
   </form>
 </div>
-<!-- -->

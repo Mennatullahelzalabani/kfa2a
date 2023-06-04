@@ -36,12 +36,12 @@
   display: flex;
   justify-content: center;
   @media (max-width: 768px) {
-    margin: -100px 0;
+    margin: -100px 5px;
   }
   .forum {
     margin: 70px 80px;
     @media (max-width: 768px) {
-      margin: 70px 0;
+      margin: 70px 10px;
     }
   }
   .login-components {

@@ -16,7 +16,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             نوع المركبة
@@ -28,7 +28,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             اسم الجهاز
@@ -38,7 +38,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             بلد الصنع
@@ -48,7 +48,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             اسم جهة الإختبار
@@ -59,7 +59,7 @@
         </ul>
       </div>
 
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             نوع الإختبار
@@ -69,7 +69,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             الرقم التسلسلي للجهاز
@@ -79,7 +79,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             حالة الطلب
@@ -91,7 +91,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             تاريخ الطلب
@@ -101,7 +101,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             نتيجة الإختبار
@@ -111,7 +111,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3">
+      <div class="col-12 col-md-3">
         <ul class="list-primary">
           <li class="list">
             مستوي التصنيف
@@ -121,26 +121,26 @@
           </li>
         </ul>
       </div>
-      <div class="col-3"></div>
-      <div class="col-3"></div>
-      <div class="col-6">
+      <div class="col-12 col-md-3"></div>
+      <div class="col-12 col-md-3"></div>
+      <div class="col-12 col-md-6">
         <ul class="list-primary">
           <li class="list">
             نوع المقطورة المناسب
             <ul class="list-secondary1">
-              <li class="list-11"></li>
+              <li class="list-11">نوع المقطورة</li>
               <li class="list-11">نوع المقطورة</li>
               <li class="list-11">نوع المقطورة</li>
             </ul>
           </li>
         </ul>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <ul class="list-primary">
           <li class="list">
             نوع المصد الهوائي
             <ul class="list-secondary1">
-              <li class="list-11"></li>
+              <li class="list-11">نوع المصد</li>
               <li class="list-11">نوع المصد</li>
               <li class="list-11">نوع المصد</li>
               <li class="list-11">نوع المصد</li>
@@ -168,30 +168,32 @@
 </div>
 <div class="table-1">
   <h2 class="header">قائمة بالورش المصرحة بتركيب الجهاز</h2>
-  <table class="table-wrap">
-    <thead>
-      <tr>
-        <th class="head" scope="col">اسم الورشة</th>
-        <th class="head" scope="col">المدينة</th>
-        <th class="head" scope="col">الموقع الجغرافي</th>
-        <th class="head" scope="col">الموقع الإلكتروني</th>
-        <th class="head" scope="col">البريد الإلكتروني</th>
-        <th class="head" scope="col">رقم التواصل</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="head-row" scope="row">{{ reqInfo.creator.nameAr }}</th>
-        <td class="content">{{ reqInfo.creator.city }}</td>
-        <td class="content-address">
-          {{ reqInfo.creator.locationUrl }}
-        </td>
-        <td class="content">{{ reqInfo.creator.website }}</td>
-        <td class="content">{{ reqInfo.creator.contact1_email }}</td>
-        <td class="content">{{ reqInfo.creator.phone }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="t-wrap">
+    <table class="table-wrap">
+      <thead>
+        <tr>
+          <th class="head" scope="col">اسم الورشة</th>
+          <th class="head" scope="col">المدينة</th>
+          <th class="head" scope="col">الموقع الجغرافي</th>
+          <th class="head" scope="col">الموقع الإلكتروني</th>
+          <th class="head" scope="col">البريد الإلكتروني</th>
+          <th class="head" scope="col">رقم التواصل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="head-row" scope="row">{{ reqInfo.creator.nameAr }}</th>
+          <td class="content">{{ reqInfo.creator.city }}</td>
+          <td class="content-address">
+            {{ reqInfo.creator.locationUrl }}
+          </td>
+          <td class="content">{{ reqInfo.creator.website }}</td>
+          <td class="content">{{ reqInfo.creator.contact1_email }}</td>
+          <td class="content">{{ reqInfo.creator.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="notes">
   <mat-accordion>

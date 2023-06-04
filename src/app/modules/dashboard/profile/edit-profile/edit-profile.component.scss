@@ -1,3 +1,4 @@
+@import "../../../../../assets/styles/header-dashboard.scss";
 @import "../../../../../assets/styles/Angular-material.scss";
 @import "../../../../../assets/styles/inputs.scss";
 
@@ -5,12 +6,17 @@
   background-color: #ffffff;
   margin-right: 20px;
   margin-left: 20px;
-  margin-top: -100px;
+  margin-top: -80px;
   border-radius: 8px;
   box-shadow: 0px 14px 24px rgba(108, 108, 108, 0.1);
-
+  @media (max-width: 768px) {
+    margin: -100px 5px 20px 5px;
+  }
   .form {
     margin: 0 72px;
+    @media (max-width: 768px) {
+      margin: 0 20px;
+    }
   }
 }
 
@@ -20,12 +26,18 @@
   font-weight: 800;
   padding-top: 46px;
   padding-bottom: 40px;
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
 }
 .heading1 {
   font-family: "original";
   padding-bottom: 12px;
   font-size: 16px;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 }
 .btn-primary {
   font-size: 14px;
@@ -40,10 +52,15 @@
 
 .check-box {
   border: 1px solid #eaeaea;
-
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
   .form-lable {
     padding-top: 17px;
     padding-right: 17px;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
   .check-mark {
     accent-color: #2c6e59;
@@ -58,6 +75,9 @@
 .buttons {
   margin-top: 46px;
   margin-right: 72px;
+  @media (max-width: 768px) {
+    margin-right: 50px;
+  }
 }
 .btn-secondary {
   font-size: 14px;
@@ -97,4 +117,68 @@
 .mat-mdc-form-field {
   width: 100%;
   margin-top: 10px;
+}
+.form-control {
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+.side-menu {
+  z-index: 2;
+  @media (max-width: 768px) {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.open-btn {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  background-color: transparent;
+  border: 2px solid #ffff;
+  border-radius: 5px;
+  box-shadow: #ffff;
+  margin: 5px;
+
+  .menu {
+    background-image: url("../../../../../assets/images/menu.png");
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    margin: auto;
+  }
+}
+
+.overlay {
+  opacity: 0;
+  width: 0;
+  visibility: hidden;
+  z-index: 1;
+  @media screen {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+}
+.open-side {
+  opacity: 1;
+  width: auto;
+  visibility: visible;
+}
+.view-overlay {
+  opacity: 1;
+  width: 100%;
+  visibility: visible;
 }
