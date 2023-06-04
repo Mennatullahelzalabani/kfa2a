@@ -62,6 +62,25 @@ export class EditProfileComponent implements OnInit {
     this.dashboardService.getFactoryData(userId).subscribe((res: any) => {
       this.firstForm.patchValue({
         nameAr: res.nameAr,
+        nameEn: res.nameEn,
+        phone: res.phone,
+        fax: res.fax,
+        poBox: res.poBox,
+        isSaudi: res.isSaudi,
+        commercialRegisterstring: res.commercialRegisterstring,
+        commercialRegisterstringEndDate: res.commercialRegisterstringEndDate,
+        postcode: res.postcode,
+        countryId: res.countryId,
+        city: res.city,
+        address: res.address,
+        website: res.website,
+        authorityLetterUrl: res.authorityLetterUrl,
+        contact1_name: res.contact1_name,
+        contact1_phone: res.contact1_phone,
+        contact1_email: res.contact1_email,
+        contact1_position: res.contact1_position,
+        email: res.email,
+        password: res.password,
       });
     });
   }
@@ -109,7 +128,7 @@ export class EditProfileComponent implements OnInit {
   currentInput: any;
   pageTitleValue = {
     title: 'لوحة التحكم',
-    text: 'الملف الشخصي ',
+    text: ' تعديل الملف الشخصي ',
   };
   selectAuthorityLetterUrl($event: any) {
     this.files = $event.target.files[0];

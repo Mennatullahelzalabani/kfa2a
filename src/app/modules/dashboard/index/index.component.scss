@@ -14,6 +14,7 @@
     width: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
+    margin-right: 10px;
   }
 }
 .open-btn {
@@ -24,7 +25,7 @@
   border: 2px solid #ffff;
   border-radius: 5px;
   box-shadow: #ffff;
-  margin: 5px;
+  margin: 15px 12px;
 
   .menu {
     background-image: url("../../../../assets/images/menu.png");
