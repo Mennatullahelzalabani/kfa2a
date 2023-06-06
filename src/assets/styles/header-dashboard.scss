@@ -33,6 +33,11 @@
     @media (max-width: 768px) {
       margin-top: 15px;
     }
+    .btn-secondary {
+      @media (max-width: 768px) {
+        padding: 5px;
+      }
+    }
     .icons {
       @media (max-width: 768px) {
         margin-right: 55px;
@@ -43,6 +48,7 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      position: relative;
       @media (max-width: 768px) {
         width: 25px;
         height: 25px;
@@ -50,8 +56,9 @@
       .img {
         width: 20px;
         margin: 10px;
+        position: absolute;
         @media (max-width: 768px) {
-          margin: auto 5px;
+          margin: 5px;
           width: 14px;
         }
       }
