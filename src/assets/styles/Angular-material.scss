@@ -290,3 +290,14 @@ button:not(:disabled) {
     margin-top: 10px;
   }
 }
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  @media (max-width: 768px) {
+    margin-right: 10px;
+  }
+}
+.mat-expansion-panel-header-title {
+  @media (max-width: 768px) {
+    font-size: 22px !important;
+  }
+}

@@ -11,7 +11,7 @@
     margin: -80px 10px 20px 10px;
   }
   .title {
-    padding: 0 42px;
+    padding: 0 12px;
     display: flex;
     justify-content: space-between;
     .header {
@@ -32,7 +32,6 @@
         height: 50px;
         padding: 5px;
         font-size: 12px;
-        margin-top: 45px;
       }
     }
   }
@@ -94,6 +93,9 @@
   font-size: 32px;
   font-weight: 800;
   padding-top: 48px;
+  @media (max-width: 768px) {
+    font-size: 22px;
+  }
 }
 .list::marker {
   color: #2c6e59;
@@ -181,6 +183,7 @@
     padding-bottom: 42px;
     @media (max-width: 768px) {
       font-size: 22px;
+      padding-right: 12px;
     }
   }
   .content-address {
