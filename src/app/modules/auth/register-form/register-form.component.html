@@ -415,14 +415,15 @@
             </div>
           </div>
         </form>
-
-        <button
-          class="btn-primary next"
-          mat-button
-          (click)="onNextFirst(stepper)"
-        >
-          التالي
-        </button>
+        <div class="buttons">
+          <button
+            class="btn-primary next"
+            mat-button
+            (click)="onNextFirst(stepper)"
+          >
+            التالي
+          </button>
+        </div>
       </div>
     </div>
   </mat-step>
@@ -701,7 +702,7 @@
             </div>
           </div>
         </form>
-        <div>
+        <div class="buttons">
           <button class="btn-secondary" mat-button matStepperPrevious>
             رجوع
           </button>

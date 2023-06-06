@@ -76,8 +76,9 @@
   margin-top: 46px;
   margin-right: 72px;
   @media (max-width: 768px) {
-    margin-right: 50px;
     display: flex;
+    justify-content: center;
+    margin-right: 0;
   }
 }
 .btn-secondary {
@@ -116,7 +117,11 @@
   }
   .uploaded-img {
     max-width: 200px;
+
     margin-top: 20px;
+    @media (max-width: 768px) {
+      margin-top: 0 !important;
+    }
   }
 }
 

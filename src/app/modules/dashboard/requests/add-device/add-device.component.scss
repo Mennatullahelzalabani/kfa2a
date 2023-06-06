@@ -111,7 +111,8 @@
 .buttons {
   margin-top: 32px;
   @media (max-width: 768px) {
-    margin-right: 42px;
+    display: flex;
+    justify-content: center;
   }
   .btn-primary {
     border-radius: 4px;

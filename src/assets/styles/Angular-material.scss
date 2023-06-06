@@ -280,3 +280,13 @@ button:not(:disabled) {
     width: 100%;
   }
 }
+.mat-horizontal-content-container {
+  @media (max-width: 768px) {
+    padding: 0 10px 24px 10px !important;
+  }
+}
+.mat-mdc-text-field-wrapper {
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
+}

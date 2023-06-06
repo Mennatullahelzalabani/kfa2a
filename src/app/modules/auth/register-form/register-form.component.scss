@@ -99,6 +99,9 @@
 }
 .next {
   margin-right: 80px;
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 }
 .check-box {
   border: 1px solid #eaeaea;
@@ -122,8 +125,8 @@
 .buttons {
   margin-top: 50px;
   @media (max-width: 768px) {
-    // margin: auto !important;
     display: flex !important;
+    justify-content: center;
   }
 }
 .btn-secondary {
