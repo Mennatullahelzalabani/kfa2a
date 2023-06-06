@@ -81,3 +81,18 @@
   margin-top: 10px;
   font-weight: bold;
 }
+.form-lable {
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+  }
+}
+.form-control {
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+  }
+}
+.form-textarea {
+  @media (max-width: 768px) {
+    font-size: 14px !important;
+  }
+}
