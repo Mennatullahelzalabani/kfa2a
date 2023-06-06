@@ -1,4 +1,10 @@
 :host {
+  .select {
+    @media (max-width: 768px) {
+      padding-right: 10px;
+    }
+  }
+
   .form-group {
     margin-top: 70px;
     display: flex;
@@ -14,59 +20,58 @@
         margin-top: 5px;
       }
     }
-
-    .form-lable {
-      color: #2c6e59;
-      padding-top: 15px;
-      padding-left: 14px;
+  }
+  .form-lable {
+    color: #2c6e59;
+    padding-top: 15px;
+    padding-left: 14px;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 10px;
+    }
+    &:first-of-type {
       @media (max-width: 768px) {
         width: 100%;
-        padding: 10px;
-      }
-      &:first-of-type {
-        @media (max-width: 768px) {
-          width: 100%;
-          padding-bottom: 20px;
-        }
+        padding-bottom: 20px;
       }
     }
   }
-  .title {
-    @media (max-width: 768px) {
-      font-size: 18px;
-    }
+}
+.title {
+  @media (max-width: 768px) {
+    font-size: 18px;
   }
-  .paragraph {
-    @media (max-width: 768px) {
-      font-size: 16px;
-    }
+}
+.paragraph {
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
-  .content {
-    margin-top: 30px;
+}
+.content {
+  margin-top: 30px;
 
-    .content-container {
-      width: 75%;
-    }
-    .section {
-      border-top: 1px solid #e6e6e6;
-      border-bottom: 1px solid #e6e6e6;
-    }
+  .content-container {
+    width: 75%;
+  }
+  .section {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+  }
 
-    .summary {
-      font-family: "original";
-      font-size: 24px;
-      font-weight: 800;
-      padding-top: 30px;
-      color: #000000;
-      padding-bottom: 30px;
-    }
-    .details {
-      color: #787a7d;
-      font-family: "original";
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 30px;
-      padding-bottom: 32px;
-    }
+  .summary {
+    font-family: "original";
+    font-size: 24px;
+    font-weight: 800;
+    padding-top: 30px;
+    color: #000000;
+    padding-bottom: 30px;
+  }
+  .details {
+    color: #787a7d;
+    font-family: "original";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    padding-bottom: 32px;
   }
 }

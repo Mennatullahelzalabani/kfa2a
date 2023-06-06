@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   background-image: linear-gradient(to left, #0091b4, #4b9b2e);
+
   .text {
     margin-top: 50px;
 
@@ -26,6 +27,11 @@
     }
   }
   .navbar {
+    a {
+      @media (max-width: 768px) {
+        margin-top: 20px;
+      }
+    }
     .nav-link {
       font-weight: 600;
       &:first-of-type {
