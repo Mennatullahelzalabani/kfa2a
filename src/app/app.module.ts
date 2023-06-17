@@ -1,3 +1,4 @@
+import { LanguageInterceptorInterceptor } from './../language-interceptor.interceptor';
 import { AuthModule } from './modules/auth/auth.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +14,11 @@ import {
   MatExpansionModule,
   MAT_ACCORDION,
 } from '@angular/material/expansion';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { SharedModule } from './modules/shared/shared.module';
 import { ToastrModule } from 'ngx-toastr';
 import {
@@ -22,6 +27,8 @@ import {
 } from '@angular/material/sidenav';
 import { WebsiteIndexComponent } from './modules/website/website-index/website-index.component';
 import { RequestInterceptor } from './modules/shared/request.interceptor';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [AppComponent, WebsiteIndexComponent],
@@ -35,11 +42,25 @@ import { RequestInterceptor } from './modules/shared/request.interceptor';
     SharedModule,
     ToastrModule.forRoot(),
     MatSidenavModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
 
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptorInterceptor,
+      multi: true,
+    },
+    HttpClient,
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+export function HttpLoaderFactory(http: HttpClient) {}

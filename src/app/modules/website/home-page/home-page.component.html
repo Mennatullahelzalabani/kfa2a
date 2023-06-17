@@ -26,22 +26,11 @@
         </ul>
 
         <ul class="left">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              EN
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item"></a>
-            </div>
-          </li>
+          <select class="dropdown lang">
+            <option value="En" [selected]="lang == 'en'">En</option>
+            <option value="Ar" [selected]="lang == 'ar'">Ar</option>
+          </select>
+
           <li class="nav-item">
             <a [routerLink]="['/auth/register']" class="btn btn-primary"
               >إنشاء حساب</a

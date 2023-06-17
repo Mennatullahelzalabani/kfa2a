@@ -4,6 +4,7 @@ import { AuthHeaderComponent } from './components/auth-header/auth-header.compon
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AuthHeaderComponent, HeaderComponent, FooterComponent],

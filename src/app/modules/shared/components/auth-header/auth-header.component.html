@@ -30,22 +30,11 @@
         </ul>
 
         <ul class="left">
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              EN
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#"></a>
-            </div>
-          </li>
+          <select class="dropdown" (change)="changelang($event.target)">
+            <option value="En">english</option>
+            <option value="Ar">Arabic</option>
+          </select>
+
           <li class="nav-item">
             <a [routerLink]="['/auth/register']" class="btn btn-primary"
               >إنشاء حساب</a
