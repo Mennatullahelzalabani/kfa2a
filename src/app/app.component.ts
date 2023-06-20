@@ -15,12 +15,12 @@ export class AppComponent implements OnInit {
     public router: Router,
     private translateservice: TranslateService
   ) {
-    this.translateservice.setDefaultLang('ar');
-    // this.translateservice.use(localStorage.getItem('lang') || 'ar');
-    translateservice.addLangs(['en', 'ar']);
+    // this.translateservice.setDefaultLang('ar');
+    // // this.translateservice.use(localStorage.getItem('lang') || 'ar');
+    // translateservice.addLangs(['en', 'ar']);
   }
-  switchLang(lang: string) {
-    this.translateservice.use(lang);
-  }
+  // switchLang(lang: string) {
+  //   this.translateservice.use(lang);
+  // }
   ngOnInit() {}
 }
