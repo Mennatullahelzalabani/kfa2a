@@ -1,7 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   title = 'sedr-project';
 
-  constructor(
-    public router: Router,
-    private translateservice: TranslateService
-  ) {
+  constructor(public router: Router) {
     // this.translateservice.setDefaultLang('ar');
     // // this.translateservice.use(localStorage.getItem('lang') || 'ar');
     // translateservice.addLangs(['en', 'ar']);
